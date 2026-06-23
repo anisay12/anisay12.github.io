@@ -3597,6 +3597,6 @@ input, select, textarea {
 
 /* Keep spacing between sections without grey lines */
 #main > section:not(:first-child) {
-	margin-top: 2em;
-	padding-top: 2em;
+	margin-top: 0em;
+	padding-top: 0em;
 }
