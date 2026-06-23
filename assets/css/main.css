@@ -3587,8 +3587,16 @@ input, select, textarea {
 	background: linear-gradient(90deg, rgba(73, 191, 157, 0.35), rgba(239, 241, 245, 0));
 }
 
+/* ================================
+   Remove section separators
+   ================================ */
+
 #main > section {
 	border-top: none !important;
-	margin: 4em 0 0 0;
-	padding: 3em 0 0 0;
+}
+
+/* Keep spacing between sections without grey lines */
+#main > section:not(:first-child) {
+	margin-top: 4em;
+	padding-top: 3em;
 }
