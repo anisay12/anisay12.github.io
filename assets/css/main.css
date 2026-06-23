@@ -3914,3 +3914,9 @@ html {
 		font-size: 1.75em;
 	}
 }
+
+/* Keep spacing between sections without grey lines */
+#main > section:not(:first-child) {
+	margin-top: 1em;
+	padding-top: 1em;
+}
