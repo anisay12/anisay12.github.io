@@ -3552,3 +3552,37 @@ input, select, textarea {
 		grid-column: span 2;
 	}
 }
+
+/* ================================
+   Premium Section Titles
+   ================================ */
+
+#main > section > h2 {
+	position: relative;
+	display: flex;
+	align-items: center;
+	gap: 0.6em;
+	margin-bottom: 1.5em;
+	color: #1f2d3d;
+	font-size: 2.1em;
+	font-weight: 800;
+	line-height: 1.2;
+	letter-spacing: -0.03em;
+}
+
+#main > section > h2::before {
+	content: "";
+	display: inline-block;
+	width: 12px;
+	height: 36px;
+	border-radius: 999px;
+	background: linear-gradient(180deg, #49bf9d, #7dd3fc);
+	box-shadow: 0 8px 18px rgba(73, 191, 157, 0.28);
+}
+
+#main > section > h2::after {
+	content: "";
+	flex: 1;
+	height: 1px;
+	background: linear-gradient(90deg, rgba(73, 191, 157, 0.35), rgba(239, 241, 245, 0));
+}
