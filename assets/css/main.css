@@ -3586,3 +3586,9 @@ input, select, textarea {
 	height: 1px;
 	background: linear-gradient(90deg, rgba(73, 191, 157, 0.35), rgba(239, 241, 245, 0));
 }
+
+#main > section {
+	border-top: none !important;
+	margin: 4em 0 0 0;
+	padding: 3em 0 0 0;
+}
