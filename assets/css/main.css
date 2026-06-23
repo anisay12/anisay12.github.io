@@ -3219,3 +3219,134 @@ input, select, textarea {
 			}
 
 	}
+
+	/* ================================
+   Portfolio - Work Experience Cards
+   ================================ */
+
+.section-intro {
+	max-width: 850px;
+	margin-bottom: 2.5em;
+	color: #6f7782;
+	font-size: 1.05em;
+	line-height: 1.8;
+}
+
+.project-card {
+	background: #ffffff;
+	border-radius: 16px;
+	box-shadow: 0 10px 28px rgba(31, 45, 61, 0.08);
+	border: 1px solid #eef1f5;
+	overflow: hidden;
+	margin-bottom: 2.8em;
+	transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.project-card:hover {
+	transform: translateY(-6px);
+	box-shadow: 0 16px 36px rgba(31, 45, 61, 0.14);
+}
+
+.project-card .image.fit.thumb {
+	margin-bottom: 0;
+	display: block;
+	overflow: hidden;
+}
+
+.project-card .image.fit.thumb img {
+	width: 100%;
+	height: 230px;
+	object-fit: cover;
+	display: block;
+	transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.project-card:hover .image.fit.thumb img {
+	transform: scale(1.04);
+	filter: brightness(0.95);
+}
+
+.project-content {
+	padding: 1.6em 1.6em 1.8em 1.6em;
+}
+
+.project-card h3 {
+	margin-bottom: 0.4em;
+	font-size: 1.2em;
+	font-weight: 700;
+	color: #1f2d3d;
+}
+
+.project-card h4 {
+	margin-top: 1.4em;
+	margin-bottom: 0.7em;
+	font-size: 0.78em;
+	font-weight: 700;
+	text-transform: uppercase;
+	letter-spacing: 0.08em;
+	color: #4acaa8;
+}
+
+.project-meta {
+	margin-bottom: 0.15em;
+	color: #2f3b4a;
+	font-size: 0.95em;
+}
+
+.project-date {
+	margin-bottom: 1.2em;
+	color: #7d8793;
+	font-size: 0.9em;
+	font-style: italic;
+}
+
+.project-content p {
+	margin-bottom: 1em;
+	line-height: 1.75;
+	color: #555f6d;
+}
+
+.project-list {
+	margin: 0 0 1.3em 1.1em;
+	padding-left: 0.6em;
+}
+
+.project-list li {
+	margin-bottom: 0.55em;
+	line-height: 1.65;
+	color: #555f6d;
+}
+
+.tech-badges {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.55em;
+	margin-top: 0.2em;
+}
+
+.tech-badges span {
+	display: inline-block;
+	background: #eef8f5;
+	color: #269b7f;
+	border: 1px solid #d7f0e8;
+	padding: 0.45em 0.75em;
+	border-radius: 999px;
+	font-size: 0.82em;
+	font-weight: 600;
+	line-height: 1.3;
+}
+
+/* Better spacing for Work Experience title */
+#two > h2 {
+	margin-bottom: 0.5em;
+	font-size: 2em;
+	font-weight: 700;
+	color: #1f2d3d;
+}
+
+/* Lightbox title readability */
+.poptrox-popup .caption {
+	font-weight: 600;
+	font-size: 1.05em;
+	color: #333;
+}
