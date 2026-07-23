@@ -3989,3 +3989,135 @@ html {
 		min-width: 2em;
 	}
 }
+
+
+/* Key Results / Impact */
+
+.results-section {
+	margin: 1.75em 0 2em 0;
+	padding: 1.15em;
+	border: 1px solid rgba(73, 191, 157, 0.16);
+	border-radius: 1em;
+	background:
+		linear-gradient(135deg, rgba(73, 191, 157, 0.08), rgba(255, 255, 255, 0.96));
+	box-shadow: 0 12px 30px rgba(0, 0, 0, 0.045);
+	position: relative;
+	overflow: hidden;
+}
+
+.results-section:before {
+	content: "";
+	position: absolute;
+	top: -55px;
+	right: -55px;
+	width: 140px;
+	height: 140px;
+	border-radius: 50%;
+	background: rgba(73, 191, 157, 0.08);
+	pointer-events: none;
+}
+
+.results-heading {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 1em;
+	margin-bottom: 0.95em;
+	position: relative;
+	z-index: 1;
+}
+
+.results-heading h4 {
+	margin: 0;
+	color: #5f5f5f;
+	font-size: 1em;
+	font-weight: 600;
+}
+
+.results-eyebrow {
+	display: inline-flex;
+	align-items: center;
+	padding: 0.35em 0.7em;
+	border-radius: 999px;
+	background: rgba(73, 191, 157, 0.12);
+	color: #2f9f80;
+	font-size: 0.66em;
+	font-weight: 600;
+	letter-spacing: 0.08em;
+	line-height: 1.25;
+	text-transform: uppercase;
+}
+
+.impact-grid {
+	display: grid;
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+	gap: 0.8em;
+	position: relative;
+	z-index: 1;
+}
+
+.impact-card {
+	min-height: 145px;
+	padding: 1em;
+	border: 1px solid rgba(120, 120, 120, 0.1);
+	border-radius: 0.85em;
+	background: rgba(255, 255, 255, 0.9);
+	box-shadow: 0 8px 20px rgba(0, 0, 0, 0.035);
+	transition:
+		transform 0.25s ease,
+		box-shadow 0.25s ease,
+		border-color 0.25s ease;
+}
+
+.impact-card:hover {
+	transform: translateY(-4px);
+	border-color: rgba(73, 191, 157, 0.28);
+	box-shadow: 0 14px 30px rgba(0, 0, 0, 0.07);
+}
+
+.impact-value {
+	display: block;
+	margin-bottom: 0.32em;
+	color: #49bf9d;
+	font-size: 1.75em;
+	font-weight: 700;
+	line-height: 1;
+	letter-spacing: -0.035em;
+}
+
+.impact-card p {
+	margin: 0;
+	color: #858585;
+	font-size: 0.78em;
+	line-height: 1.55em;
+}
+
+@media screen and (max-width: 1280px) {
+	.impact-grid {
+		grid-template-columns: 1fr;
+	}
+
+	.impact-card {
+		min-height: 0;
+	}
+}
+
+@media screen and (max-width: 736px) {
+	.results-section {
+		padding: 1em;
+	}
+
+	.results-heading {
+		align-items: flex-start;
+		flex-direction: column-reverse;
+		gap: 0.55em;
+	}
+
+	.impact-grid {
+		grid-template-columns: 1fr;
+	}
+
+	.impact-value {
+		font-size: 1.55em;
+	}
+}
