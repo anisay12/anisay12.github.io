@@ -1,117 +1,65 @@
-/*
-	Strata by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
-*/
+(() => {
+  const root = document.documentElement;
+  const body = document.body;
+  const header = document.querySelector('.site-header');
+  const nav = document.getElementById('nav-links');
+  const menuToggle = document.getElementById('menu-toggle');
+  const themeToggle = document.getElementById('theme-toggle');
+  const year = document.getElementById('year');
+  const navLinks = [...document.querySelectorAll('.nav-links a')];
+  const sections = [...document.querySelectorAll('main section[id]')];
 
-(function($) {
+  year.textContent = new Date().getFullYear();
 
-	var $window = $(window),
-		$body = $('body'),
-		$header = $('#header'),
-		$footer = $('#footer'),
-		$main = $('#main'),
-		settings = {
+  const savedTheme = localStorage.getItem('portfolio-theme');
+  if (savedTheme === 'light' || savedTheme === 'dark') {
+    root.dataset.theme = savedTheme;
+  }
 
-			// Parallax background effect?
-				parallax: true,
+  themeToggle.addEventListener('click', () => {
+    const nextTheme = root.dataset.theme === 'dark' ? 'light' : 'dark';
+    root.dataset.theme = nextTheme;
+    localStorage.setItem('portfolio-theme', nextTheme);
+  });
 
-			// Parallax factor (lower = more intense, higher = less intense).
-				parallaxFactor: 20
+  menuToggle.addEventListener('click', () => {
+    const isOpen = nav.classList.toggle('open');
+    body.classList.toggle('nav-open', isOpen);
+    menuToggle.setAttribute('aria-expanded', String(isOpen));
+  });
 
-		};
+  navLinks.forEach((link) => {
+    link.addEventListener('click', () => {
+      nav.classList.remove('open');
+      body.classList.remove('nav-open');
+      menuToggle.setAttribute('aria-expanded', 'false');
+    });
+  });
 
-	// Breakpoints.
-		breakpoints({
-			xlarge:  [ '1281px',  '1800px' ],
-			large:   [ '981px',   '1280px' ],
-			medium:  [ '737px',   '980px'  ],
-			small:   [ '481px',   '736px'  ],
-			xsmall:  [ null,      '480px'  ],
-		});
+  window.addEventListener('scroll', () => {
+    header.classList.toggle('scrolled', window.scrollY > 24);
+  }, { passive: true });
 
-	// Play initial animations on page load.
-		$window.on('load', function() {
-			window.setTimeout(function() {
-				$body.removeClass('is-preload');
-			}, 100);
-		});
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        revealObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -40px' });
 
-	// Touch?
-		if (browser.mobile) {
+  document.querySelectorAll('.reveal').forEach((element) => revealObserver.observe(element));
 
-			// Turn on touch mode.
-				$body.addClass('is-touch');
+  const sectionObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting) return;
+      navLinks.forEach((link) => {
+        const target = link.getAttribute('href').slice(1);
+        link.classList.toggle('active', target === entry.target.id);
+      });
+    });
+  }, { rootMargin: '-35% 0px -55%', threshold: 0 });
 
-			// Height fix (mostly for iOS).
-				window.setTimeout(function() {
-					$window.scrollTop($window.scrollTop() + 1);
-				}, 0);
-
-		}
-
-	// Footer.
-		breakpoints.on('<=medium', function() {
-			$footer.insertAfter($main);
-		});
-
-		breakpoints.on('>medium', function() {
-			$footer.appendTo($header);
-		});
-
-	// Header.
-
-		// Parallax background.
-
-			// Disable parallax on IE (smooth scrolling is jerky), and on mobile platforms (= better performance).
-				if (browser.name == 'ie'
-				||	browser.mobile)
-					settings.parallax = false;
-
-			if (settings.parallax) {
-
-				breakpoints.on('<=medium', function() {
-
-					$window.off('scroll.strata_parallax');
-					$header.css('background-position', '');
-
-				});
-
-				breakpoints.on('>medium', function() {
-
-					$header.css('background-position', 'left 0px');
-
-					$window.on('scroll.strata_parallax', function() {
-						$header.css('background-position', 'left ' + (-1 * (parseInt($window.scrollTop()) / settings.parallaxFactor)) + 'px');
-					});
-
-				});
-
-				$window.on('load', function() {
-					$window.triggerHandler('scroll');
-				});
-
-			}
-
-	// Experience lightbox gallery.
-		$window.on('load', function() {
-
-			$('#experience').poptrox({
-				caption: function($a) {
-					return $a.find('img').attr('alt') || '';
-				},
-				overlayColor: '#2c2c2c',
-				overlayOpacity: 0.85,
-				popupCloserText: '',
-				popupLoaderText: '',
-				selector: '.work-item a.image',
-				usePopupCaption: true,
-				usePopupDefaultStyling: false,
-				usePopupEasyClose: false,
-				usePopupNav: true,
-				windowMargin: (breakpoints.active('<=small') ? 0 : 50)
-			});
-
-		});
-
-})(jQuery);
+  sections.forEach((section) => sectionObserver.observe(section));
+})();
