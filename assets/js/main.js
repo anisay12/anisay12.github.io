@@ -377,7 +377,7 @@
         'Data Engineer · Cloud & Plateformes Data',
 
       heroTitle:
-        'Je construis des plateformes data <span>fiables, scalables</span> et utiles.',
+        'Je développe des plateformes data <span>fiables, scalables</span> et utiles.',
 
       heroLead:
         'Je conçois, industrialise et optimise des plateformes data cloud et des pipelines de données, en combinant une expertise en Data Engineering avec une solide expérience en développement logiciel.',
