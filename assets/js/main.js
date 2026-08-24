@@ -388,9 +388,9 @@
       ],
 
       metrics: [
-        'Écosystèmes cloud',
-        'Projets majeurs',
-        'Gain maximal d’ingestion'
+        "Années d'expérience",
+        "Écosystèmes cloud",
+        "Projets majeurs"
       ],
 
       focus: [
