@@ -110,7 +110,7 @@
         'Data Engineer · Cloud & Data Platforms',
 
       heroTitle:
-        'Building data platforms that are <span>reliable, scalable</span> and useful.',
+        'Building <span>reliable, scalable</span> and useful data platforms .',
 
       heroLead:
         'I build, industrialize and optimize cloud data platforms and data pipelines, combining data engineering expertise with a strong software development foundation.',
