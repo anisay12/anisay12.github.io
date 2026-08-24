@@ -121,9 +121,9 @@
       ],
 
       metrics: [
+        'Years of experience',
         'Cloud ecosystems',
-        'Major projects',
-        'Peak ingestion gain'
+        'Major projects',     
       ],
 
       focus: [
