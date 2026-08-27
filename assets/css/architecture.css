@@ -1,0 +1,306 @@
+/* ==========================================================
+   PROJECT ARCHITECTURES — dedicated stylesheet
+   Loaded after main.css to prevent cascade/cache conflicts.
+   ========================================================== */
+
+#project-dialog .architecture-flow {
+  display: block;
+  width: 100%;
+  min-width: 0;
+}
+
+#project-dialog .architecture-intro {
+  margin: .25rem 0 1rem;
+  color: var(--muted);
+  font-size: .88rem;
+  line-height: 1.55;
+}
+
+/* ---------- Transverse orchestration ---------- */
+#project-dialog .architecture-orchestration {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(220px, .75fr) minmax(360px, 1.7fr);
+  align-items: center;
+  gap: 1.5rem;
+  width: 100%;
+  margin: 0 0 1.65rem;
+  padding: 1rem 1.25rem 1.2rem;
+  border: 1px solid rgba(100, 231, 191, .28);
+  border-radius: 18px;
+  background: rgba(100, 231, 191, .055);
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+#project-dialog .architecture-orchestration-heading {
+  min-width: 0;
+}
+
+#project-dialog .architecture-orchestration small {
+  display: block;
+  margin: 0 0 .35rem;
+  color: var(--accent);
+  font-size: .63rem;
+  font-weight: 800;
+  letter-spacing: .1em;
+  line-height: 1.35;
+  text-transform: uppercase;
+}
+
+#project-dialog .architecture-orchestration strong {
+  display: block;
+  color: var(--text);
+  font-size: 1rem;
+  line-height: 1.35;
+}
+
+#project-dialog .architecture-orchestration p {
+  margin: 0;
+  color: var(--muted);
+  font-size: .78rem;
+  line-height: 1.55;
+}
+
+#project-dialog .architecture-orchestration-rail {
+  position: absolute;
+  left: 2rem;
+  right: 2rem;
+  bottom: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--accent), transparent);
+  opacity: .78;
+}
+
+/* ---------- Desktop horizontal architecture ---------- */
+#project-dialog .architecture-scroll {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: auto;
+  overflow-y: visible;
+  padding: .75rem .15rem 1rem;
+  box-sizing: border-box;
+  scrollbar-width: thin;
+}
+
+#project-dialog .architecture-track {
+  display: flex !important;
+  flex-flow: row nowrap !important;
+  align-items: stretch !important;
+  width: max-content !important;
+  min-width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+#project-dialog .architecture-step {
+  display: flex !important;
+  flex: 0 0 auto !important;
+  flex-direction: row !important;
+  align-items: center !important;
+  width: auto !important;
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+}
+
+#project-dialog button.architecture-node {
+  appearance: none !important;
+  -webkit-appearance: none !important;
+  position: relative !important;
+  display: flex !important;
+  flex: 0 0 172px !important;
+  flex-direction: column !important;
+  align-items: stretch !important;
+  width: 172px !important;
+  min-width: 172px !important;
+  max-width: 172px !important;
+  min-height: 285px !important;
+  margin: 0 !important;
+  padding: 2.05rem .9rem 1rem !important;
+  box-sizing: border-box !important;
+  border: 1px solid var(--line) !important;
+  border-radius: 17px !important;
+  outline: 0;
+  background: var(--surface-solid) !important;
+  color: var(--text) !important;
+  text-align: left !important;
+  white-space: normal !important;
+  font: inherit !important;
+  cursor: pointer;
+  overflow: visible;
+  box-shadow: none !important;
+  transform: none;
+  transition: transform .2s ease, border-color .2s ease, background .2s ease;
+}
+
+#project-dialog button.architecture-node:hover,
+#project-dialog button.architecture-node.active {
+  border-color: rgba(100, 231, 191, .58) !important;
+  background: var(--surface-2) !important;
+  transform: translateY(-3px);
+}
+
+#project-dialog button.architecture-node.processing-node {
+  border-style: dashed !important;
+  background: rgba(100, 231, 191, .045) !important;
+}
+
+#project-dialog .architecture-index {
+  position: absolute !important;
+  top: -1rem !important;
+  left: 50% !important;
+  display: grid !important;
+  place-items: center;
+  width: 2rem !important;
+  height: 2rem !important;
+  padding: 0 !important;
+  transform: translateX(-50%) !important;
+  border: 1px solid rgba(100, 231, 191, .55);
+  border-radius: 999px;
+  background: var(--surface-solid) !important;
+  color: var(--accent) !important;
+  font-size: .66rem !important;
+  font-weight: 800 !important;
+  line-height: 1 !important;
+  box-shadow: 0 0 0 5px var(--bg);
+}
+
+#project-dialog button.architecture-node small {
+  display: block !important;
+  min-height: 2.45em;
+  margin: 0;
+  color: var(--accent) !important;
+  font-size: .59rem !important;
+  font-weight: 800 !important;
+  letter-spacing: .085em;
+  line-height: 1.25;
+  text-transform: uppercase;
+}
+
+#project-dialog button.architecture-node strong {
+  display: block !important;
+  margin: .5rem 0 .65rem !important;
+  color: var(--text) !important;
+  font-size: .81rem !important;
+  font-weight: 750 !important;
+  line-height: 1.4 !important;
+}
+
+#project-dialog button.architecture-node > span:not(.architecture-index) {
+  display: block !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  color: var(--muted) !important;
+  font-size: .66rem !important;
+  font-weight: 400 !important;
+  line-height: 1.48 !important;
+  white-space: normal !important;
+}
+
+#project-dialog .architecture-arrow {
+  display: flex !important;
+  flex: 0 0 30px !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 30px !important;
+  min-width: 30px !important;
+  height: auto !important;
+  color: var(--accent) !important;
+  font-size: 1.05rem !important;
+  line-height: 1 !important;
+  transform: none !important;
+}
+
+/* ---------- Selected component ---------- */
+#project-dialog .architecture-detail {
+  display: block;
+  width: 100%;
+  margin-top: .6rem;
+  padding: 1rem 1.05rem;
+  box-sizing: border-box;
+  border: 1px solid var(--line);
+  border-radius: 15px;
+  background: var(--surface-solid);
+}
+
+#project-dialog .architecture-detail-label {
+  display: block;
+  color: var(--accent);
+  font-size: .64rem;
+  font-weight: 800;
+  letter-spacing: .09em;
+  text-transform: uppercase;
+}
+
+#project-dialog .architecture-detail strong {
+  display: block;
+  margin: .3rem 0;
+  color: var(--text);
+}
+
+#project-dialog .architecture-detail p {
+  margin: 0;
+  color: var(--muted);
+  font-size: .8rem;
+  line-height: 1.55;
+}
+
+/* ---------- Desktop sizing ---------- */
+@media (min-width: 761px) {
+  #project-dialog.project-dialog {
+    width: min(1340px, calc(100% - 2rem)) !important;
+  }
+}
+
+/* ---------- Mobile ---------- */
+@media (max-width: 760px) {
+  #project-dialog .architecture-orchestration {
+    grid-template-columns: 1fr;
+    gap: .55rem;
+    padding: 1rem;
+  }
+
+  #project-dialog .architecture-scroll {
+    overflow: visible;
+    padding: .65rem 0 .4rem;
+  }
+
+  #project-dialog .architecture-track {
+    flex-direction: column !important;
+    width: 100% !important;
+    min-width: 0 !important;
+  }
+
+  #project-dialog .architecture-step {
+    flex-direction: column !important;
+    width: 100% !important;
+  }
+
+  #project-dialog button.architecture-node {
+    flex: 0 0 auto !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    max-width: none !important;
+    min-height: 0 !important;
+    padding: 1.45rem 1rem 1rem !important;
+  }
+
+  #project-dialog button.architecture-node small {
+    min-height: 0;
+  }
+
+  #project-dialog .architecture-index {
+    left: 1rem !important;
+    transform: none !important;
+  }
+
+  #project-dialog .architecture-arrow {
+    flex: 0 0 30px !important;
+    width: auto !important;
+    min-width: 0 !important;
+    height: 30px !important;
+    transform: rotate(90deg) !important;
+  }
+}
