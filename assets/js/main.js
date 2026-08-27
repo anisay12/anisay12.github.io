@@ -690,7 +690,63 @@
   document.querySelectorAll('.timeline-point').forEach(btn=>btn.addEventListener('click',()=>renderTimeline(btn.dataset.timeline)));
 
   const dialog=document.getElementById('project-dialog'); let currentProject=null;
-  function renderArchitecture(project){const lang=currentPortfolioLanguage;const detail=project[lang]||project.en;const flow=dialog.querySelector('.architecture-flow');dialog.querySelector('.architecture-intro').textContent=detail.archIntro;const orchestration=detail.orchestration?`<div class="architecture-orchestration"><small>${detail.orchestration.title}</small><strong>${detail.orchestration.stack}</strong><span>${detail.orchestration.copy}</span></div>`:'';flow.innerHTML=orchestration+detail.arch.map((n,i)=>`<button type="button" class="architecture-node${i===0?' active':''}" data-node="${i}"><small>${n[0]}</small><strong>${n[1]}</strong><span>${n[2]}</span></button>`).join(''); const setDetail=(i)=>{const n=detail.arch[i];setText('.architecture-detail-label',n[0]);dialog.querySelector('.architecture-detail strong').textContent=n[1];dialog.querySelector('.architecture-detail p').textContent=n[2];flow.querySelectorAll('.architecture-node').forEach((b,j)=>b.classList.toggle('active',i===j));}; setDetail(0); flow.querySelectorAll('.architecture-node').forEach(btn=>btn.addEventListener('click',()=>setDetail(Number(btn.dataset.node))));}
+  function renderArchitecture(project){
+    const lang=currentPortfolioLanguage;
+    const detail=project[lang]||project.en;
+    const flow=dialog.querySelector('.architecture-flow');
+
+    dialog.querySelector('.architecture-intro').textContent=detail.archIntro;
+
+    const orchestration=detail.orchestration
+      ? `<div class="architecture-orchestration">
+          <div class="architecture-orchestration-heading">
+            <small>${detail.orchestration.title}</small>
+            <strong>${detail.orchestration.stack}</strong>
+          </div>
+          <p>${detail.orchestration.copy}</p>
+          <div class="architecture-orchestration-rail" aria-hidden="true"></div>
+        </div>`
+      : '';
+
+    const nodes=detail.arch.map((n,i)=>{
+      const isProcessing=/Processing|Traitement/i.test(n[0]);
+      return `
+        <div class="architecture-step">
+          <button
+            type="button"
+            class="architecture-node${i===0?' active':''}${isProcessing?' processing-node':''}"
+            data-node="${i}"
+          >
+            <span class="architecture-index">${String(i+1).padStart(2,'0')}</span>
+            <small>${n[0]}</small>
+            <strong>${n[1]}</strong>
+            <span>${n[2]}</span>
+          </button>
+          ${i<detail.arch.length-1?'<span class="architecture-arrow" aria-hidden="true">→</span>':''}
+        </div>`;
+    }).join('');
+
+    flow.innerHTML=`
+      ${orchestration}
+      <div class="architecture-scroll">
+        <div class="architecture-track">
+          ${nodes}
+        </div>
+      </div>`;
+
+    const setDetail=(i)=>{
+      const n=detail.arch[i];
+      setText('.architecture-detail-label',n[0]);
+      dialog.querySelector('.architecture-detail strong').textContent=n[1];
+      dialog.querySelector('.architecture-detail p').textContent=n[2];
+      flow.querySelectorAll('.architecture-node').forEach((b,j)=>b.classList.toggle('active',i===j));
+    };
+
+    setDetail(0);
+    flow.querySelectorAll('.architecture-node').forEach(btn=>
+      btn.addEventListener('click',()=>setDetail(Number(btn.dataset.node)))
+    );
+  }
   function openProject(projectId,tab='case'){const p=projectDetails[projectId];if(!p||!dialog)return;currentProject=projectId;const lang=currentPortfolioLanguage;const d=p[lang]||p.en;dialog.querySelector('#dialog-title').textContent=p.title;dialog.querySelector('.dialog-role').textContent=p.role;dialog.querySelector('.dialog-challenge').textContent=d.challenge;dialog.querySelector('.dialog-approach').textContent=d.approach;dialog.querySelector('.dialog-outcome').textContent=d.outcome;dialog.querySelector('.dialog-deliverables ul').innerHTML=d.decisions.map(x=>`<li>${x}</li>`).join('');renderArchitecture(p);switchDialogTab(tab);dialog.showModal();}
   function switchDialogTab(tab){dialog.querySelectorAll('.dialog-tab').forEach(b=>{const a=b.dataset.dialogTab===tab;b.classList.toggle('active',a);b.setAttribute('aria-selected',String(a));});dialog.querySelectorAll('.dialog-panel').forEach(p=>p.classList.toggle('active',p.dataset.dialogPanel===tab));}
   if(dialog){document.querySelectorAll('.case-study-open').forEach(btn=>btn.addEventListener('click',()=>openProject(btn.closest('.case-study').dataset.project,'case')));document.querySelectorAll('.architecture-open').forEach(btn=>btn.addEventListener('click',()=>openProject(btn.closest('.case-study').dataset.project,'architecture')));dialog.querySelector('.dialog-close').addEventListener('click',()=>dialog.close());dialog.querySelectorAll('.dialog-tab').forEach(btn=>btn.addEventListener('click',()=>switchDialogTab(btn.dataset.dialogTab)));dialog.addEventListener('click',e=>{const r=dialog.getBoundingClientRect();if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)dialog.close();});}
