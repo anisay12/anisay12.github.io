@@ -16,16 +16,13 @@
   // Theme
   // -----------------------------
   const savedTheme = localStorage.getItem('portfolio-theme');
-
   if (savedTheme === 'light' || savedTheme === 'dark') {
     root.dataset.theme = savedTheme;
   }
 
   if (themeToggle) {
     themeToggle.addEventListener('click', () => {
-      const nextTheme =
-        root.dataset.theme === 'dark' ? 'light' : 'dark';
-
+      const nextTheme = root.dataset.theme === 'dark' ? 'light' : 'dark';
       root.dataset.theme = nextTheme;
       localStorage.setItem('portfolio-theme', nextTheme);
     });
@@ -37,27 +34,17 @@
   if (menuToggle && nav) {
     menuToggle.addEventListener('click', () => {
       const isOpen = nav.classList.toggle('open');
-
       body.classList.toggle('nav-open', isOpen);
-
-      menuToggle.setAttribute(
-        'aria-expanded',
-        String(isOpen)
-      );
+      menuToggle.setAttribute('aria-expanded', String(isOpen));
     });
   }
 
   navLinks.forEach((link) => {
     link.addEventListener('click', () => {
       if (!nav || !menuToggle) return;
-
       nav.classList.remove('open');
       body.classList.remove('nav-open');
-
-      menuToggle.setAttribute(
-        'aria-expanded',
-        'false'
-      );
+      menuToggle.setAttribute('aria-expanded', 'false');
     });
   });
 
@@ -65,162 +52,65 @@
   // Translation helpers
   // -----------------------------
   const setText = (selector, values) => {
-    const elements = [
-      ...document.querySelectorAll(selector)
-    ];
-
-    if (!Array.isArray(values)) {
-      values = [values];
-    }
-
+    const elements = [...document.querySelectorAll(selector)];
+    if (!Array.isArray(values)) values = [values];
     elements.forEach((element, index) => {
       const value = values[index];
-
-      if (typeof value !== 'undefined') {
-        element.textContent = value;
-      }
+      if (typeof value !== 'undefined') element.textContent = value;
     });
   };
 
   const setHTML = (selector, html) => {
     const element = document.querySelector(selector);
-
-    if (element) {
-      element.innerHTML = html;
-    }
+    if (element) element.innerHTML = html;
   };
 
-  // -----------------------------
-  // Translations
-  // -----------------------------
   const translations = {
     en: {
-      metaDescription:
-        'Portfolio of Anis Ayari, Data Engineer specializing in cloud data platforms, Spark, AWS and Azure.',
-
-      nav: [
-        'Experience',
-        'Projects',
-        'Certifications',
-        'Education',
-        'Contact'
-      ],
-
-      heroEyebrow:
-        'Data Engineer · Cloud & Data Platforms',
-
-      heroTitle:
-        'Building <span>reliable, scalable</span> and useful data platforms .',
-
-      heroLead:
-        'I build, industrialize and optimize cloud data platforms and data pipelines, combining data engineering expertise with a strong software development foundation.',
-
-      heroActions: [
-        'Explore my work ↘',
-        'Let’s talk ↗'
-      ],
-
-      metrics: [
-        'Years of experience',
-        'Cloud ecosystems',
-        'Major projects',     
-      ],
-
-      focus: [
-        'Cloud Data Platforms',
-        'Data Engineering',
-        'Orchestration',
-        'Automation',
-        'Data Quality',
-        'Backend & APIs'
-      ],
-
-      expertiseTitles: [
-        'Cloud Data Platforms',
-        'Data Workflows',
-        'Software Engineering'
-      ],
-
+      metaDescription: 'Portfolio of Anis Ayari, Data Engineer specializing in cloud data platforms, Spark, AWS and Azure.',
+      nav: ['Experience', 'Projects', 'Certifications', 'Education', 'Contact'],
+      heroEyebrow: 'Data Engineer · Cloud & Data Platforms',
+      heroTitle: 'Building data platforms that are <span>reliable, scalable</span> and useful.',
+      heroLead: 'I build, industrialize and optimize cloud data platforms and data pipelines, combining data engineering expertise with a strong software development foundation.',
+      heroActions: ['Explore my work ↘', 'Let’s talk ↗'],
+      metrics: ['Years of experience', 'Cloud ecosystems', 'Major projects'],
+      focus: ['Cloud Data Platforms', 'Data Engineering', 'Orchestration', 'Automation', 'Data Quality', 'Backend & APIs'],
+      expertiseTitles: ['Cloud Data Platforms', 'Data Workflows', 'Software Engineering'],
       expertiseText: [
         'Design and industrialization of robust data platforms on AWS and Azure.',
         'Automated, observable and maintainable pipelines from ingestion to serving.',
         'Backend development, APIs, testing and clean engineering practices applied to data.'
       ],
-
-      experienceKicker:
-        'Work experience',
-
-      experienceTitle:
-        'From data ingestion to business impact.',
-
-      experienceIntro:
-        'Client missions and product-oriented projects where engineering decisions translated into measurable operational improvements.',
-
-      currentPosition:
-        'Current position',
-
-      jemsDescription:
-        'Cloud data platforms, pipeline industrialization, workflow automation and data quality for client missions and internal projects.',
-
-      presentDate:
-        'Nov. 2024 — Present',
-
-      clientMission: [
-        'Client mission · JEMS',
-        'Client mission · JEMS'
-      ],
-
-      dates: [
-        'Oct. 2025 — May 2026',
-        'Jan. 2025 — Aug. 2025',
-        'Mar. 2022 — Feb. 2024',
-        'Feb. 2020 — May 2021',
-        'Feb. 2018 — Jun. 2018'
-      ],
-
+      experienceKicker: 'Work experience',
+      experienceTitle: 'From data ingestion to business impact.',
+      experienceIntro: 'Client missions and product-oriented projects where engineering decisions translated into measurable operational improvements.',
+      currentPosition: 'Current position',
+      jemsDescription: 'Cloud data platforms, pipeline industrialization, workflow automation and data quality for client missions and internal projects.',
+      presentDate: 'Nov. 2024 — Present',
+      clientMission: ['Client mission · JEMS', 'Client mission · JEMS'],
+      dates: ['Oct. 2025 — May 2026', 'Jan. 2025 — Aug. 2025', 'Mar. 2022 — Feb. 2024', 'Feb. 2020 — May 2021', 'Feb. 2018 — Jun. 2018'],
       summaries: [
         'Territorial data platform centralizing and exposing reliable geospatial datasets for local authorities and cartographic use cases.',
-
         'Operational data platform centralizing ERP data across the JUSSIEU secours network and automating curated datasets for Power BI reporting.',
-
         'E-commerce data workflows focused on product catalog ingestion, enrichment, quality control and operational automation.',
-
         'Development of a web application for telecom network quality-of-service monitoring, combining data processing, REST APIs, machine-learning models and interactive dashboards for performance analysis and anomaly detection.',
-
         'Web application centralizing fiber-optic project data, field interventions and operational progress tracking.'
       ],
-
       impactTexts: [
         'Faster ingestion after Spark optimizations',
-
         'Ingestion errors automatically detected and routed to SQS',
-
         'Automated reporting instead of weekly manual production',
-
         'Reduction in analytical processing time through Spark optimization',
-
         'Reduction in product listing errors through automated controls',
-
         'Of previously manual catalog-update work automated',
-
         'Continuous automated anomaly detection',
-
         'Faster incident response through real-time alerts',
-
         'Estimated reduction in manual project-data consolidation',
-
         'Estimated improvement in project status update turnaround'
       ],
-
-      daily:
-        'Daily',
-
-      deliveredHeading:
-        'What I delivered',
-
-      stackHeading:
-        'Core stack',
-
+      daily: 'Daily',
+      deliveredHeading: 'What I delivered',
+      stackHeading: 'Core stack',
       deliveredLists: [
         [
           'Multi-source ingestion pipelines with AWS Glue.',
@@ -229,7 +119,6 @@
           'Automated data-quality controls and rejected-record workflows.',
           'Curated data exposure through GeoServer.'
         ],
-
         [
           'Azure Synapse ingestion from Lomaco and Synovo ERP systems.',
           'Transformation jobs with PySpark and Spark SQL.',
@@ -237,21 +126,18 @@
           'Performance optimization for analytical processing and reporting.',
           'Reliable datasets for business and operational steering.'
         ],
-
         [
           'Python-based scripts for product extraction from B2B and B2C websites.',
           'Cleaning, transformation and integration of product data.',
           'Anomaly, duplicate and inconsistency detection.',
           'Automated quality controls and catalog reliability monitoring.'
         ],
-
         [
           'Web application backend and REST APIs using Django and Django Rest Framework.',
           'Data processing workflows for network performance data collection, cleaning and transformation.',
           'Integration of machine-learning models for network anomaly detection and performance prediction.',
           'Interactive dashboards for KPI monitoring, real-time alerts and model outputs.'
         ],
-
         [
           'Business requirements and technical specifications.',
           'Application architecture and database model.',
@@ -259,940 +145,593 @@
           'Project and intervention tracking features.'
         ]
       ],
-
-      projectsKicker:
-        'Personal projects',
-
-      projectsTitle:
-        'Engineering beyond client delivery.',
-
-      projectsIntro:
-        'A selection of projects covering distributed processing, forecasting, machine learning and backend development.',
-
+      projectsKicker: 'Personal projects',
+      projectsTitle: 'Engineering beyond client delivery.',
+      projectsIntro: 'A selection of projects covering distributed processing, forecasting, machine learning and backend development.',
       projectDescriptions: [
         'Distributed processing workflow for scalable log-data analysis.',
-
         'Time-series modeling for operational performance prediction.',
-
         'Distributed machine-learning implementation with Spark MLlib.',
-
         'Regression modeling and experimentation in Python.',
-
         'Backend web-development project built with Django.'
       ],
-
-      learningKicker:
-        'Continuous learning',
-
-      certificationsTitle:
-        'Certifications & accreditations.',
-
-      certificationsIntro:
-        'Focused on analytics engineering, data pipelines, governance and distributed data systems.',
-
+      learningKicker: 'Continuous learning',
+      certificationsTitle: 'Certifications & accreditations.',
+      certificationsIntro: 'Focused on analytics engineering, data pipelines, governance and distributed data systems.',
       certificationDescriptions: [
         'Modeling, testing, documentation, debugging, CI/CD and analytics engineering workflows.',
-
         'Core dbt concepts, models, tests, documentation and workflow.',
-
         'Data governance, risk, compliance and security foundations.',
-
         'Pipeline orchestration and automation.',
-
         'Foundational tools used across data-science projects.',
-
         'Python ecosystem, data-science concepts and project foundations.',
-
         'Big-data and distributed-processing concepts and tools.'
       ],
-
-      academicKicker:
-        'Academic background',
-
-      academicTitle:
-        'A foundation spanning data, technology and business.',
-
+      academicKicker: 'Academic background',
+      academicTitle: 'A foundation spanning data, technology and business.',
       educationTitles: [
         'MBA Data Solutions Architect',
         'Master’s Degree in Big Data Analytics and E-commerce',
         'Bachelor’s Degree in Business Information Systems'
       ],
-
-      contactKicker:
-        'Get in touch',
-
-      contactTitle:
-        'Let’s build something useful with data.',
-
-      contactText:
-        'Open to Data Engineering opportunities, cloud data-platform projects and technically ambitious environments.',
-
-      phone:
-        'Phone',
-
-      location:
-        'Location',
-
-      backTop:
-        'Back to top ↑',
-
-      themeLabel:
-        'Switch color theme',
-
-      menuLabel:
-        'Open navigation',
-
-      navLabel:
-        'Main navigation',
-
-      langLabel:
-        'Language selector',
-
-      profileLabel:
-        'Professional profile summary',
-
-      coreTechLabel:
-        'Core technologies',
-
-      expertiseLabel:
-        'Expertise'
+      contactKicker: 'Get in touch',
+      contactTitle: 'Let’s build something useful with data.',
+      contactText: 'Open to Data Engineering opportunities, cloud data-platform projects and technically ambitious environments.',
+      phone: 'Phone',
+      location: 'Location',
+      backTop: 'Back to top ↑',
+      themeLabel: 'Switch color theme',
+      menuLabel: 'Open navigation',
+      navLabel: 'Main navigation',
+      langLabel: 'Language selector',
+      profileLabel: 'Professional profile summary',
+      coreTechLabel: 'Core technologies',
+      expertiseLabel: 'Expertise'
     },
 
-    // =============================
-    // FRENCH
-    // =============================
     fr: {
-      metaDescription:
-        'Portfolio d’Anis Ayari, Data Engineer spécialisé dans les plateformes data cloud, Spark, AWS et Azure.',
-
-      nav: [
-        'Expérience',
-        'Projets',
-        'Certifications',
-        'Formation',
-        'Contact'
-      ],
-
-      heroEyebrow:
-        'Data Engineer · Cloud & Plateformes Data',
-
-      heroTitle:
-        'Je développe des plateformes data <span>fiables, scalables</span> et utiles.',
-
-      heroLead:
-        'Je conçois, industrialise et optimise des plateformes data cloud et des pipelines de données, en combinant une expertise en Data Engineering avec une solide expérience en développement logiciel.',
-
-      heroActions: [
-        'Découvrir mon parcours ↘',
-        'Échangeons ↗'
-      ],
-
-      metrics: [
-        "Années d'expérience",
-        "Écosystèmes cloud",
-        "Projets majeurs"
-      ],
-
-      focus: [
-        'Plateformes Data Cloud',
-        'Data Engineering',
-        'Orchestration',
-        'Automatisation',
-        'Qualité des données',
-        'Backend & APIs'
-      ],
-
-      expertiseTitles: [
-        'Plateformes Data Cloud',
-        'Workflows Data',
-        'Software Engineering'
-      ],
-
+      metaDescription: 'Portfolio d’Anis Ayari, Data Engineer spécialisé dans les plateformes data cloud, Spark, AWS et Azure.',
+      nav: ['Expérience', 'Projets', 'Certifications', 'Formation', 'Contact'],
+      heroEyebrow: 'Data Engineer · Cloud & Plateformes Data',
+      heroTitle: 'Je construis des plateformes data <span>fiables, scalables</span> et utiles.',
+      heroLead: 'Je conçois, industrialise et optimise des plateformes data cloud et des pipelines de données, en combinant une expertise en Data Engineering avec une solide expérience en développement logiciel.',
+      heroActions: ['Découvrir mon parcours ↘', 'Échangeons ↗'],
+      metrics: ["Années d'expérience", 'Écosystèmes cloud', 'Projets majeurs'],
+      focus: ['Plateformes Data Cloud', 'Data Engineering', 'Orchestration', 'Automatisation', 'Qualité des données', 'Backend & APIs'],
+      expertiseTitles: ['Plateformes Data Cloud', 'Workflows Data', 'Software Engineering'],
       expertiseText: [
         'Conception et industrialisation de plateformes data robustes sur AWS et Azure.',
-
         'Pipelines automatisés, observables et maintenables, de l’ingestion jusqu’à l’exposition des données.',
-
         'Développement backend, APIs, tests et bonnes pratiques d’ingénierie appliquées à la data.'
       ],
-
-      experienceKicker:
-        'Expérience professionnelle',
-
-      experienceTitle:
-        'De l’ingestion des données à l’impact métier.',
-
-      experienceIntro:
-        'Missions client et projets orientés produit où les choix d’ingénierie se traduisent par des améliorations opérationnelles mesurables.',
-
-      currentPosition:
-        'Poste actuel',
-
-      jemsDescription:
-        'Plateformes data cloud, industrialisation de pipelines, automatisation des workflows et qualité des données pour des missions client et des projets internes.',
-
-      presentDate:
-        'Nov. 2024 — Aujourd’hui',
-
-      clientMission: [
-        'Mission client · JEMS',
-        'Mission client · JEMS'
-      ],
-
-      dates: [
-        'Oct. 2025 — Mai 2026',
-        'Janv. 2025 — Août 2025',
-        'Mars 2022 — Fév. 2024',
-        'Fév. 2020 — Mai 2021',
-        'Fév. 2018 — Juin 2018'
-      ],
-
+      experienceKicker: 'Expérience professionnelle',
+      experienceTitle: 'De l’ingestion des données à l’impact métier.',
+      experienceIntro: 'Missions client et projets orientés produit où les choix d’ingénierie se traduisent par des améliorations opérationnelles mesurables.',
+      currentPosition: 'Poste actuel',
+      jemsDescription: 'Plateformes data cloud, industrialisation de pipelines, automatisation des workflows et qualité des données pour des missions client et des projets internes.',
+      presentDate: 'Nov. 2024 — Aujourd’hui',
+      clientMission: ['Mission client · JEMS', 'Mission client · JEMS'],
+      dates: ['Oct. 2025 — Mai 2026', 'Janv. 2025 — Août 2025', 'Mars 2022 — Fév. 2024', 'Fév. 2020 — Mai 2021', 'Fév. 2018 — Juin 2018'],
       summaries: [
         'Plateforme data territoriale centralisant et exposant des jeux de données géospatiales fiables pour les collectivités et les usages cartographiques.',
-
         'Plateforme data opérationnelle centralisant les données ERP du réseau JUSSIEU secours et automatisant les jeux de données préparés pour le reporting Power BI.',
-
         'Workflows data e-commerce dédiés à l’ingestion, l’enrichissement, au contrôle qualité et à l’automatisation opérationnelle du catalogue produit.',
-
         'Développement d’une application web de supervision de la qualité de service des réseaux télécoms, combinant traitement de données, APIs REST, modèles de machine learning et dashboards interactifs pour l’analyse des performances et la détection d’anomalies.',
-
         'Application web centralisant les données des projets fibre optique, les interventions terrain et le suivi de l’avancement opérationnel.'
       ],
-
       impactTexts: [
         'Ingestion plus rapide grâce aux optimisations Spark',
-
         'Des erreurs d’ingestion détectées automatiquement et envoyées vers SQS',
-
         'Reporting automatisé quotidien au lieu d’une production manuelle hebdomadaire',
-
         'Réduction du temps de traitement analytique grâce aux optimisations Spark',
-
         'Réduction des erreurs de fiches produit grâce aux contrôles automatisés',
-
         'Du travail manuel de mise à jour du catalogue automatisé',
-
         'Détection automatisée et continue des anomalies',
-
         'Réaction aux incidents plus rapide grâce aux alertes en temps réel',
-
         'Réduction estimée de la consolidation manuelle des données projet',
-
         'Amélioration estimée du délai de mise à jour de l’avancement projet'
       ],
-
-      daily:
-        'Quotidien',
-
-      deliveredHeading:
-        'Réalisations',
-
-      stackHeading:
-        'Stack technique',
-
+      daily: 'Quotidien',
+      deliveredHeading: 'Réalisations',
+      stackHeading: 'Stack technique',
       deliveredLists: [
         [
           'Développement de pipelines d’ingestion multi-sources avec AWS Glue.',
-
           'Traitement de données géospatiales à travers les couches Bronze, Silver et Gold.',
-
           'Orchestration des workflows avec Step Functions et EventBridge.',
-
           'Mise en place de contrôles qualité automatisés et de workflows de gestion des rejets.',
-
           'Exposition des données préparées via GeoServer.'
         ],
-
         [
           'Ingestion via Azure Synapse depuis les ERP Lomaco et Synovo.',
-
           'Développement de traitements de transformation avec PySpark et Spark SQL.',
-
           'Automatisation end-to-end des workflows, de l’ingestion aux couches préparées.',
-
           'Optimisation des performances pour les traitements analytiques et le reporting.',
-
           'Mise à disposition de jeux de données fiables pour le pilotage métier et opérationnel.'
         ],
-
         [
           'Développement de scripts Python pour extraire les données produit de sites B2B et B2C.',
-
           'Nettoyage, transformation et intégration des données produit.',
-
           'Détection des anomalies, doublons et incohérences.',
-
           'Automatisation des contrôles qualité et du suivi de la fiabilité du catalogue.'
         ],
-
         [
           'Développement du backend de l’application web et des APIs REST avec Django et Django Rest Framework.',
-
           'Création de workflows de traitement pour la collecte, le nettoyage et la transformation des données de performance réseau.',
-
           'Intégration de modèles de machine learning pour la détection d’anomalies réseau et la prédiction des performances.',
-
           'Développement de dashboards interactifs pour le suivi des KPIs, des alertes en temps réel et des résultats des modèles.'
         ],
-
         [
           'Recueil des besoins métier et rédaction des spécifications techniques.',
-
           'Définition de l’architecture applicative et du modèle de données.',
-
           'Développement des composants backend et des APIs RESTful.',
-
           'Développement des fonctionnalités de suivi des projets et des interventions.'
         ]
       ],
-
-      projectsKicker:
-        'Projets personnels',
-
-      projectsTitle:
-        'L’ingénierie au-delà des missions client.',
-
-      projectsIntro:
-        'Une sélection de projets couvrant le traitement distribué, la prévision, le machine learning et le développement backend.',
-
+      projectsKicker: 'Projets personnels',
+      projectsTitle: 'L’ingénierie au-delà des missions client.',
+      projectsIntro: 'Une sélection de projets couvrant le traitement distribué, la prévision, le machine learning et le développement backend.',
       projectDescriptions: [
         'Workflow de traitement distribué pour l’analyse scalable de données de logs.',
-
         'Modélisation de séries temporelles pour la prédiction de métriques de performance opérationnelle.',
-
         'Implémentation de machine learning distribué avec Spark MLlib.',
-
         'Modélisation par régression et expérimentation en Python.',
-
         'Projet de développement web backend réalisé avec Django.'
       ],
-
-      learningKicker:
-        'Apprentissage continu',
-
-      certificationsTitle:
-        'Certifications & accréditations.',
-
-      certificationsIntro:
-        'Un parcours axé sur l’Analytics Engineering, les pipelines data, la gouvernance et les systèmes de données distribués.',
-
+      learningKicker: 'Apprentissage continu',
+      certificationsTitle: 'Certifications & accréditations.',
+      certificationsIntro: 'Un parcours axé sur l’Analytics Engineering, les pipelines data, la gouvernance et les systèmes de données distribués.',
       certificationDescriptions: [
         'Modélisation, tests, documentation, debugging, CI/CD et workflows d’Analytics Engineering.',
-
         'Concepts fondamentaux de dbt, modèles, tests, documentation et workflow.',
-
         'Fondamentaux de la gouvernance, des risques, de la conformité et de la sécurité des données.',
-
         'Orchestration et automatisation de pipelines.',
-
         'Outils fondamentaux utilisés dans les projets de data science.',
-
         'Écosystème Python, concepts de data science et bases de réalisation de projets.',
-
         'Concepts et outils du Big Data et du traitement distribué.'
       ],
-
-      academicKicker:
-        'Parcours académique',
-
-      academicTitle:
-        'Une formation à l’intersection de la data, de la technologie et du business.',
-
+      academicKicker: 'Parcours académique',
+      academicTitle: 'Une formation à l’intersection de la data, de la technologie et du business.',
       educationTitles: [
         'MBA Data Solutions Architect',
         'Master en Big Data Analytics et E-commerce',
         'Licence en Informatique de Gestion'
       ],
-
-      contactKicker:
-        'Me contacter',
-
-      contactTitle:
-        'Construisons quelque chose d’utile avec la data.',
-
-      contactText:
-        'Ouvert aux opportunités en Data Engineering, aux projets de plateformes data cloud et aux environnements techniquement ambitieux.',
-
-      phone:
-        'Téléphone',
-
-      location:
-        'Localisation',
-
-      backTop:
-        'Retour en haut ↑',
-
-      themeLabel:
-        'Changer le thème de couleur',
-
-      menuLabel:
-        'Ouvrir la navigation',
-
-      navLabel:
-        'Navigation principale',
-
-      langLabel:
-        'Sélecteur de langue',
-
-      profileLabel:
-        'Résumé du profil professionnel',
-
-      coreTechLabel:
-        'Technologies principales',
-
-      expertiseLabel:
-        'Expertise'
+      contactKicker: 'Me contacter',
+      contactTitle: 'Construisons quelque chose d’utile avec la data.',
+      contactText: 'Ouvert aux opportunités en Data Engineering, aux projets de plateformes data cloud et aux environnements techniquement ambitieux.',
+      phone: 'Téléphone',
+      location: 'Localisation',
+      backTop: 'Retour en haut ↑',
+      themeLabel: 'Changer le thème de couleur',
+      menuLabel: 'Ouvrir la navigation',
+      navLabel: 'Navigation principale',
+      langLabel: 'Sélecteur de langue',
+      profileLabel: 'Résumé du profil professionnel',
+      coreTechLabel: 'Technologies principales',
+      expertiseLabel: 'Expertise'
     }
   };
 
-  // -----------------------------
-  // Apply language
-  // -----------------------------
   function applyLanguage(lang) {
-    const t =
-      translations[lang] || translations.en;
-
+    const t = translations[lang] || translations.en;
     root.lang = lang;
 
-    document.title =
-      'Anis AYARI — Data Engineer';
-
-    const metaDescription =
-      document.querySelector(
-        'meta[name="description"]'
-      );
-
-    if (metaDescription) {
-      metaDescription.setAttribute(
-        'content',
-        t.metaDescription
-      );
-    }
-
-    // Navigation
-    setText(
-      '.nav-links a',
-      t.nav
-    );
-
-    // Hero
-    setText(
-      '.eyebrow',
-      t.heroEyebrow
-    );
-
-    setHTML(
-      '.hero-copy h1',
-      t.heroTitle
-    );
-
-    setText(
-      '.hero-lead',
-      t.heroLead
-    );
-
-    setText(
-      '.hero-actions .button',
-      t.heroActions
-    );
-
-    setText(
-      '.profile-metrics div span',
-      t.metrics
-    );
-
-    setText(
-      '.profile-focus span',
-      t.focus
-    );
-
-    // Expertise
-    setText(
-      '.intro-strip article h3',
-      t.expertiseTitles
-    );
-
-    setText(
-      '.intro-strip article p',
-      t.expertiseText
-    );
-
-    // Experience heading
-    setText(
-      '#experience .section-heading .section-kicker',
-      t.experienceKicker
-    );
-
-    setText(
-      '#experience .section-heading h2',
-      t.experienceTitle
-    );
-
-    setText(
-      '#experience .section-heading > p',
-      t.experienceIntro
-    );
-
-    // JEMS
-    setText(
-      '.company-overline',
-      t.currentPosition
-    );
-
-    setText(
-      '.company-banner-copy p',
-      t.jemsDescription
-    );
-
-    setText(
-      '.company-banner-copy > span',
-      t.presentDate
-    );
-
-    // Experience metadata
-    const metas = [
-      ...document.querySelectorAll(
-        '.case-meta'
-      )
-    ];
-
-    if (metas[0]) {
-      metas[0].children[0].textContent =
-        t.clientMission[0];
-    }
-
-    if (metas[1]) {
-      metas[1].children[0].textContent =
-        t.clientMission[1];
-    }
-
-    metas.forEach(
-      (meta, index) => {
-        if (
-          meta.children[1] &&
-          t.dates[index]
-        ) {
-          meta.children[1].textContent =
-            t.dates[index];
-        }
-      }
-    );
-
-    // Experience descriptions
-    setText(
-      '.case-summary',
-      t.summaries
-    );
-
-    // Impact results
-    setText(
-      '.impact-box span',
-      t.impactTexts
-    );
-
-    const impactStrong = [
-      ...document.querySelectorAll(
-        '.impact-box strong'
-      )
-    ];
-
-    // Keolis "Daily"
-    if (impactStrong[2]) {
-      impactStrong[2].textContent =
-        t.daily;
-    }
-
-    // Delivered + stack
-    document
-      .querySelectorAll('.case-study')
-      .forEach(
-        (study, studyIndex) => {
-          const headings =
-            study.querySelectorAll(
-              '.case-columns h4'
-            );
-
-          if (headings[0]) {
-            headings[0].textContent =
-              t.deliveredHeading;
-          }
-
-          if (headings[1]) {
-            headings[1].textContent =
-              t.stackHeading;
-          }
-
-          const listItems =
-            study.querySelectorAll(
-              '.case-columns > div:first-child li'
-            );
-
-          const translated =
-            t.deliveredLists[
-              studyIndex
-            ] || [];
-
-          listItems.forEach(
-            (li, itemIndex) => {
-              if (
-                translated[itemIndex]
-              ) {
-                li.textContent =
-                  translated[
-                    itemIndex
-                  ];
-              }
-            }
-          );
-        }
-      );
-
-    // Projects
-    setText(
-      '#projects .section-kicker',
-      t.projectsKicker
-    );
-
-    setText(
-      '#projects .section-heading h2',
-      t.projectsTitle
-    );
-
-    setText(
-      '#projects .section-heading > p',
-      t.projectsIntro
-    );
-
-    setText(
-      '.project-tile p',
-      t.projectDescriptions
-    );
-
-    // Certifications
-    setText(
-      '#certifications .section-kicker',
-      t.learningKicker
-    );
-
-    setText(
-      '#certifications .split-heading h2',
-      t.certificationsTitle
-    );
-
-    setText(
-      '#certifications .split-heading p',
-      t.certificationsIntro
-    );
-
-    setText(
-      '.credential-list .credential-item p',
-      t.certificationDescriptions
-    );
-
-    // Education
-    setText(
-      '#education .section-kicker',
-      t.academicKicker
-    );
-
-    setText(
-      '#education .section-heading h2',
-      t.academicTitle
-    );
-
-    setText(
-      '.education-row h3',
-      t.educationTitles
-    );
-
-    // Contact
-    setText(
-      '#contact .section-kicker',
-      t.contactKicker
-    );
-
-    setText(
-      '#contact .contact-copy h2',
-      t.contactTitle
-    );
-
-    setText(
-      '#contact .contact-copy > p',
-      t.contactText
-    );
-
-    const contactLabels =
-      document.querySelectorAll(
-        '.contact-details > * > span'
-      );
-
-    if (contactLabels[0]) {
-      contactLabels[0].textContent =
-        t.phone;
-    }
-
-    if (contactLabels[3]) {
-      contactLabels[3].textContent =
-        t.location;
-    }
-
-    setText(
-      '.site-footer > a',
-      t.backTop
-    );
-
-    // Accessibility labels
-    const navShell =
-      document.querySelector(
-        '.nav-shell'
-      );
-
-    const languageSwitcher =
-      document.querySelector(
-        '.language-switcher'
-      );
-
-    const heroPanel =
-      document.querySelector(
-        '.hero-panel'
-      );
-
-    const heroStack =
-      document.querySelector(
-        '.hero-stack'
-      );
-
-    const introStrip =
-      document.querySelector(
-        '.intro-strip'
-      );
-
-    if (themeToggle) {
-      themeToggle.setAttribute(
-        'aria-label',
-        t.themeLabel
-      );
-    }
-
-    if (menuToggle) {
-      menuToggle.setAttribute(
-        'aria-label',
-        t.menuLabel
-      );
-    }
-
-    if (navShell) {
-      navShell.setAttribute(
-        'aria-label',
-        t.navLabel
-      );
-    }
-
-    if (languageSwitcher) {
-      languageSwitcher.setAttribute(
-        'aria-label',
-        t.langLabel
-      );
-    }
-
-    if (heroPanel) {
-      heroPanel.setAttribute(
-        'aria-label',
-        t.profileLabel
-      );
-    }
-
-    if (heroStack) {
-      heroStack.setAttribute(
-        'aria-label',
-        t.coreTechLabel
-      );
-    }
-
-    if (introStrip) {
-      introStrip.setAttribute(
-        'aria-label',
-        t.expertiseLabel
-      );
-    }
-
-    // Active language button
-    langButtons.forEach(
-      (button) => {
-        const active =
-          button.dataset.lang === lang;
-
-        button.classList.toggle(
-          'active',
-          active
-        );
-
-        button.setAttribute(
-          'aria-pressed',
-          String(active)
-        );
-      }
-    );
-
-    // Save selected language
-    localStorage.setItem(
-      'portfolio-language',
-      lang
-    );
+    document.title = 'Anis AYARI — Data Engineer';
+    const metaDescription = document.querySelector('meta[name="description"]');
+    if (metaDescription) metaDescription.setAttribute('content', t.metaDescription);
+
+    setText('.nav-links a', t.nav);
+    setText('.eyebrow', t.heroEyebrow);
+    setHTML('.hero-copy h1', t.heroTitle);
+    setText('.hero-lead', t.heroLead);
+    setText('.hero-actions .button', t.heroActions);
+    setText('.profile-metrics div span', t.metrics);
+    setText('.profile-focus span', t.focus);
+    setText('.intro-strip article h3', t.expertiseTitles);
+    setText('.intro-strip article p', t.expertiseText);
+
+    setText('#experience .section-heading .section-kicker', t.experienceKicker);
+    setText('#experience .section-heading h2', t.experienceTitle);
+    setText('#experience .section-heading > p', t.experienceIntro);
+    setText('.company-overline', t.currentPosition);
+    setText('.company-banner-copy p', t.jemsDescription);
+    setText('.company-banner-copy > span', t.presentDate);
+
+    const metas = [...document.querySelectorAll('.case-meta')];
+    if (metas[0]) metas[0].children[0].textContent = t.clientMission[0];
+    if (metas[1]) metas[1].children[0].textContent = t.clientMission[1];
+    metas.forEach((meta, index) => {
+      if (meta.children[1] && t.dates[index]) meta.children[1].textContent = t.dates[index];
+    });
+
+    setText('.case-summary', t.summaries);
+    setText('.impact-box span', t.impactTexts);
+    const impactStrong = [...document.querySelectorAll('.impact-box strong')];
+    if (impactStrong[2]) impactStrong[2].textContent = t.daily;
+
+    document.querySelectorAll('.case-study').forEach((study, studyIndex) => {
+      const headings = study.querySelectorAll('.case-columns h4');
+      if (headings[0]) headings[0].textContent = t.deliveredHeading;
+      if (headings[1]) headings[1].textContent = t.stackHeading;
+
+      const listItems = study.querySelectorAll('.case-columns > div:first-child li');
+      const translated = t.deliveredLists[studyIndex] || [];
+      listItems.forEach((li, itemIndex) => {
+        if (translated[itemIndex]) li.textContent = translated[itemIndex];
+      });
+    });
+
+    setText('#projects .section-kicker', t.projectsKicker);
+    setText('#projects .section-heading h2', t.projectsTitle);
+    setText('#projects .section-heading > p', t.projectsIntro);
+    setText('.project-tile p', t.projectDescriptions);
+
+    setText('#certifications .section-kicker', t.learningKicker);
+    setText('#certifications .split-heading h2', t.certificationsTitle);
+    setText('#certifications .split-heading p', t.certificationsIntro);
+    setText('.credential-list .credential-item p', t.certificationDescriptions);
+
+    setText('#education .section-kicker', t.academicKicker);
+    setText('#education .section-heading h2', t.academicTitle);
+    setText('.education-row h3', t.educationTitles);
+
+    setText('#contact .section-kicker', t.contactKicker);
+    setText('#contact .contact-copy h2', t.contactTitle);
+    setText('#contact .contact-copy > p', t.contactText);
+    const contactLabels = document.querySelectorAll('.contact-details > * > span');
+    if (contactLabels[0]) contactLabels[0].textContent = t.phone;
+    if (contactLabels[3]) contactLabels[3].textContent = t.location;
+    setText('.site-footer > a', t.backTop);
+
+    const navShell = document.querySelector('.nav-shell');
+    const languageSwitcher = document.querySelector('.language-switcher');
+    const heroPanel = document.querySelector('.hero-panel');
+    const heroStack = document.querySelector('.hero-stack');
+    const introStrip = document.querySelector('.intro-strip');
+
+    if (themeToggle) themeToggle.setAttribute('aria-label', t.themeLabel);
+    if (menuToggle) menuToggle.setAttribute('aria-label', t.menuLabel);
+    if (navShell) navShell.setAttribute('aria-label', t.navLabel);
+    if (languageSwitcher) languageSwitcher.setAttribute('aria-label', t.langLabel);
+    if (heroPanel) heroPanel.setAttribute('aria-label', t.profileLabel);
+    if (heroStack) heroStack.setAttribute('aria-label', t.coreTechLabel);
+    if (introStrip) introStrip.setAttribute('aria-label', t.expertiseLabel);
+
+    langButtons.forEach((button) => {
+      const active = button.dataset.lang === lang;
+      button.classList.toggle('active', active);
+      button.setAttribute('aria-pressed', String(active));
+    });
+
+    localStorage.setItem('portfolio-language', lang);
   }
 
-  // -----------------------------
-  // Language buttons
-  // -----------------------------
-  langButtons.forEach(
-    (button) => {
-      button.addEventListener(
-        'click',
-        () => {
-          applyLanguage(
-            button.dataset.lang
-          );
-        }
-      );
-    }
-  );
+  langButtons.forEach((button) => {
+    button.addEventListener('click', () => { applyLanguage(button.dataset.lang); if (typeof applyEnhancementLanguage === 'function') applyEnhancementLanguage(button.dataset.lang); });
+  });
+
+  const savedLanguage = localStorage.getItem('portfolio-language');
+  const browserLanguage = navigator.language && navigator.language.toLowerCase().startsWith('fr') ? 'fr' : 'en';
+  applyLanguage(savedLanguage === 'fr' || savedLanguage === 'en' ? savedLanguage : browserLanguage);
 
   // -----------------------------
-  // Initial language
+  // Header state
   // -----------------------------
-  const savedLanguage =
-    localStorage.getItem(
-      'portfolio-language'
-    );
-
-  const browserLanguage =
-    navigator.language &&
-    navigator.language
-      .toLowerCase()
-      .startsWith('fr')
-      ? 'fr'
-      : 'en';
-
-  applyLanguage(
-    savedLanguage === 'fr' ||
-    savedLanguage === 'en'
-      ? savedLanguage
-      : browserLanguage
-  );
-
-  // -----------------------------
-  // Header scroll state
-  // -----------------------------
-  window.addEventListener(
-    'scroll',
-    () => {
-      if (header) {
-        header.classList.toggle(
-          'scrolled',
-          window.scrollY > 24
-        );
-      }
-    },
-    {
-      passive: true
-    }
-  );
+  window.addEventListener('scroll', () => {
+    if (header) header.classList.toggle('scrolled', window.scrollY > 24);
+  }, { passive: true });
 
   // -----------------------------
   // Reveal animations
   // -----------------------------
-  if (
-    'IntersectionObserver' in window
-  ) {
-    const revealObserver =
-      new IntersectionObserver(
-        (entries) => {
-          entries.forEach(
-            (entry) => {
-              if (
-                entry.isIntersecting
-              ) {
-                entry.target.classList.add(
-                  'visible'
-                );
-
-                revealObserver.unobserve(
-                  entry.target
-                );
-              }
-            }
-          );
-        },
-        {
-          threshold: 0.12,
-          rootMargin:
-            '0px 0px -40px'
+  if ('IntersectionObserver' in window) {
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          revealObserver.unobserve(entry.target);
         }
-      );
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px' });
 
-    document
-      .querySelectorAll('.reveal')
-      .forEach(
-        (element) =>
-          revealObserver.observe(
-            element
-          )
-      );
+    document.querySelectorAll('.reveal').forEach((element) => revealObserver.observe(element));
 
-    // -----------------------------
-    // Active navigation section
-    // -----------------------------
-    const sectionObserver =
-      new IntersectionObserver(
-        (entries) => {
-          entries.forEach(
-            (entry) => {
-              if (
-                !entry.isIntersecting
-              ) {
-                return;
-              }
+    const sectionObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        navLinks.forEach((link) => {
+          const target = link.getAttribute('href').slice(1);
+          link.classList.toggle('active', target === entry.target.id);
+        });
+      });
+    }, { rootMargin: '-35% 0px -55%', threshold: 0 });
 
-              navLinks.forEach(
-                (link) => {
-                  const target =
-                    link
-                      .getAttribute(
-                        'href'
-                      )
-                      .slice(1);
-
-                  link.classList.toggle(
-                    'active',
-                    target ===
-                      entry.target.id
-                  );
-                }
-              );
-            }
-          );
-        },
-        {
-          rootMargin:
-            '-35% 0px -55%',
-          threshold: 0
-        }
-      );
-
-    sections.forEach(
-      (section) =>
-        sectionObserver.observe(
-          section
-        )
-    );
+    sections.forEach((section) => sectionObserver.observe(section));
   } else {
-    document
-      .querySelectorAll('.reveal')
-      .forEach(
-        (element) =>
-          element.classList.add(
-            'visible'
-          )
-      );
+    document.querySelectorAll('.reveal').forEach((element) => element.classList.add('visible'));
   }
+
+  // ============================================================
+  // Premium motion system
+  // ============================================================
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const finePointer = window.matchMedia('(pointer: fine)').matches;
+
+  // 1) Cursor spotlight: gives the whole page a subtle interactive glow.
+  if (!reduceMotion && finePointer) {
+    body.classList.add('has-pointer-glow');
+
+    let pointerX = window.innerWidth * 0.5;
+    let pointerY = window.innerHeight * 0.35;
+    let glowX = pointerX;
+    let glowY = pointerY;
+
+    window.addEventListener('pointermove', (event) => {
+      pointerX = event.clientX;
+      pointerY = event.clientY;
+    }, { passive: true });
+
+    const animateGlow = () => {
+      glowX += (pointerX - glowX) * 0.12;
+      glowY += (pointerY - glowY) * 0.12;
+      root.style.setProperty('--pointer-x', `${glowX}px`);
+      root.style.setProperty('--pointer-y', `${glowY}px`);
+      requestAnimationFrame(animateGlow);
+    };
+    animateGlow();
+  }
+
+  // 2) Ambient blobs react gently to page scroll for depth.
+  if (!reduceMotion) {
+    const ambientOne = document.querySelector('.ambient-one');
+    const ambientTwo = document.querySelector('.ambient-two');
+    let scrollTicking = false;
+
+    const updateAmbientParallax = () => {
+      const y = window.scrollY;
+      if (ambientOne) ambientOne.style.transform = `translate3d(0, ${y * 0.035}px, 0) rotate(${y * 0.002}deg)`;
+      if (ambientTwo) ambientTwo.style.transform = `translate3d(0, ${-y * 0.025}px, 0) rotate(${-y * 0.0015}deg)`;
+      scrollTicking = false;
+    };
+
+    window.addEventListener('scroll', () => {
+      if (!scrollTicking) {
+        requestAnimationFrame(updateAmbientParallax);
+        scrollTicking = true;
+      }
+    }, { passive: true });
+  }
+
+  // 3) Stagger reveal timings so sections do not enter like one flat block.
+  document.querySelectorAll('.intro-strip, .impact-row, .project-grid, .credential-list, .education-list').forEach((group) => {
+    [...group.children].forEach((child, index) => {
+      child.style.setProperty('--stagger-index', index);
+      child.classList.add('stagger-item');
+    });
+  });
+
+  document.querySelectorAll('.case-study').forEach((card, index) => {
+    card.style.setProperty('--case-index', index);
+  });
+
+  // 4) 3D tilt cards. Intentionally subtle: 3.5 degrees max.
+  if (!reduceMotion && finePointer) {
+    const tiltTargets = document.querySelectorAll('.profile-card, .case-study, .project-tile, .contact-panel');
+
+    tiltTargets.forEach((card) => {
+      card.classList.add('motion-card');
+
+      card.addEventListener('pointermove', (event) => {
+        const rect = card.getBoundingClientRect();
+        const px = (event.clientX - rect.left) / rect.width;
+        const py = (event.clientY - rect.top) / rect.height;
+        const rotateY = (px - 0.5) * 7;
+        const rotateX = (0.5 - py) * 7;
+
+        card.style.setProperty('--tilt-x', `${rotateX.toFixed(2)}deg`);
+        card.style.setProperty('--tilt-y', `${rotateY.toFixed(2)}deg`);
+        card.style.setProperty('--shine-x', `${(px * 100).toFixed(1)}%`);
+        card.style.setProperty('--shine-y', `${(py * 100).toFixed(1)}%`);
+      });
+
+      card.addEventListener('pointerleave', () => {
+        card.style.setProperty('--tilt-x', '0deg');
+        card.style.setProperty('--tilt-y', '0deg');
+        card.style.setProperty('--shine-x', '50%');
+        card.style.setProperty('--shine-y', '50%');
+      });
+    });
+  }
+
+  // 5) Magnetic primary actions: tiny attraction, not a distracting floating button.
+  if (!reduceMotion && finePointer) {
+    document.querySelectorAll('.button, .icon-button, .lang-btn').forEach((button) => {
+      button.classList.add('magnetic-target');
+
+      button.addEventListener('pointermove', (event) => {
+        const rect = button.getBoundingClientRect();
+        const dx = event.clientX - (rect.left + rect.width / 2);
+        const dy = event.clientY - (rect.top + rect.height / 2);
+        button.style.setProperty('--magnet-x', `${dx * 0.10}px`);
+        button.style.setProperty('--magnet-y', `${dy * 0.10}px`);
+      });
+
+      button.addEventListener('pointerleave', () => {
+        button.style.setProperty('--magnet-x', '0px');
+        button.style.setProperty('--magnet-y', '0px');
+      });
+    });
+  }
+
+  // 6) Count-up animation for quantified impact metrics.
+  const parseMetric = (text) => {
+    if (text.includes('/')) return null;
+    const match = text.match(/^(~?)(\d+(?:\.\d+)?)(.*)$/);
+    if (!match) return null;
+    return {
+      prefix: match[1],
+      value: Number(match[2]),
+      suffix: match[3]
+    };
+  };
+
+  const animateMetric = (element) => {
+    if (element.dataset.counted === 'true') return;
+    const parsed = parseMetric(element.textContent.trim());
+    if (!parsed) return;
+
+    element.dataset.counted = 'true';
+    const duration = 950;
+    const start = performance.now();
+    const decimals = Number.isInteger(parsed.value) ? 0 : 1;
+
+    const tick = (now) => {
+      const progress = Math.min((now - start) / duration, 1);
+      const eased = 1 - Math.pow(1 - progress, 3);
+      const current = parsed.value * eased;
+      element.textContent = `${parsed.prefix}${current.toFixed(decimals)}${parsed.suffix}`;
+      if (progress < 1) requestAnimationFrame(tick);
+      else element.textContent = `${parsed.prefix}${parsed.value}${parsed.suffix}`;
+    };
+
+    requestAnimationFrame(tick);
+  };
+
+  if (!reduceMotion && 'IntersectionObserver' in window) {
+    const metricObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        animateMetric(entry.target);
+        observer.unobserve(entry.target);
+      });
+    }, { threshold: 0.7 });
+
+    document.querySelectorAll('.impact-box strong, .profile-metrics strong').forEach((metric) => metricObserver.observe(metric));
+  }
+
+  // 7) A compact animated "data signal" decoration in the hero panel.
+  // It is generated by JS, so the HTML structure stays untouched.
+  const profileCard = document.querySelector('.profile-card');
+  if (profileCard && !profileCard.querySelector('.data-signal')) {
+    const signal = document.createElement('div');
+    signal.className = 'data-signal';
+    signal.setAttribute('aria-hidden', 'true');
+    signal.innerHTML = '<i></i><i></i><i></i><i></i><i></i><i></i><span></span>';
+    profileCard.appendChild(signal);
+  }
+
+
+  // ============================================================
+  // Interactive portfolio features
+  // ============================================================
+  const featureCopy = {
+    en: {
+      impactKicker:'Impact dashboard', impactTitle:'Engineering measured by outcomes.', impactIntro:'A snapshot of measurable improvements delivered across cloud data, analytics and automation projects.',
+      impactTitles:['Faster ingestion','Errors routed','Faster analytics','Catalog work automated'],
+      impactCopies:['Spark workload optimizations on a geospatial data platform.','Automated ingestion-error detection and SQS routing.','Lower analytical processing time after Spark optimization.','Previously manual product-catalog update activities automated.'],
+      pipelineKicker:'How I build', pipelineTitle:'From raw signals to trusted data products.', pipelineIntro:'A simplified view of the engineering flow I use to turn heterogeneous sources into reliable, business-ready data.',
+      capKicker:'Capabilities', capTitle:'Explore my stack by engineering capability.', capIntro:'Select a capability to highlight the experiences where I applied it.',
+      capTitles:['Cloud Platforms','Processing','Orchestration','Data Quality','Software Engineering','Data Storage'],
+      capCopies:['AWS · Azure · S3 · ADLS · Glue · Synapse','Spark · PySpark · Spark SQL · Python','Step Functions · EventBridge · Automated workflows','Validation · Reject routing · Reliability controls','APIs · Django · Java · Backend · Testing','Iceberg · S3 · ADLS · PostgreSQL · MySQL'],
+      stackLabel:'Interactive tech stack', stackHelp:'Filter work experience by technology', all:'All', filterStatus:(n)=>`${n} experience${n===1?'':'s'} highlighted`,
+      careerKicker:'Career timeline', careerTitle:'An engineering journey toward cloud data platforms.', careerIntro:'Select a milestone to see how my scope evolved from software development to cloud data engineering.',
+      certVerified:'Certified', certCopy:'Validated expertise in modeling, testing, documentation, debugging, CI/CD and modern analytics engineering workflows.', certLink:'Verify credential',
+      caseButton:'Explore case study', architectureButton:'View architecture', close:'Close case study', dialogKicker:'Case study', tabs:['Case Study','Architecture'], labels:['Challenge','Approach','Outcome','Key engineering decisions'], archSelect:'Select a component'
+    },
+    fr: {
+      impactKicker:'Dashboard d’impact', impactTitle:'Une ingénierie mesurée par les résultats.', impactIntro:'Une synthèse des améliorations mesurables obtenues sur mes projets cloud, data, analytics et automatisation.',
+      impactTitles:['Ingestion accélérée','Erreurs routées','Analytics accéléré','Catalogue automatisé'],
+      impactCopies:['Optimisation des traitements Spark sur une plateforme de données géospatiales.','Détection automatique des erreurs d’ingestion et routage vers SQS.','Réduction du temps de traitement analytique après optimisation Spark.','Automatisation des activités auparavant manuelles de mise à jour du catalogue.'],
+      pipelineKicker:'Ma façon de construire', pipelineTitle:'Des données brutes aux data products fiables.', pipelineIntro:'Une vue simplifiée de mon approche pour transformer des sources hétérogènes en données fiables et exploitables par les métiers.',
+      capKicker:'Compétences', capTitle:'Explorez ma stack par capacité d’ingénierie.', capIntro:'Sélectionnez une compétence pour mettre en évidence les expériences dans lesquelles je l’ai appliquée.',
+      capTitles:['Plateformes Cloud','Traitement','Orchestration','Qualité des données','Software Engineering','Stockage Data'],
+      capCopies:['AWS · Azure · S3 · ADLS · Glue · Synapse','Spark · PySpark · Spark SQL · Python','Step Functions · EventBridge · Workflows automatisés','Validation · Routage des rejets · Contrôles de fiabilité','APIs · Django · Java · Backend · Tests','Iceberg · S3 · ADLS · PostgreSQL · MySQL'],
+      stackLabel:'Stack technique interactive', stackHelp:'Filtrer les expériences par technologie', all:'Tous', filterStatus:(n)=>`${n} expérience${n>1?'s':''} mise${n>1?'s':''} en évidence`,
+      careerKicker:'Timeline professionnelle', careerTitle:'Un parcours d’ingénierie vers les plateformes data cloud.', careerIntro:'Sélectionnez une étape pour voir l’évolution de mon périmètre, du développement logiciel au Cloud Data Engineering.',
+      certVerified:'Certifié', certCopy:'Expertise validée en modélisation, tests, documentation, debugging, CI/CD et pratiques modernes d’Analytics Engineering.', certLink:'Vérifier la certification',
+      caseButton:'Explorer le case study', architectureButton:'Voir l’architecture', close:'Fermer le case study', dialogKicker:'Case study', tabs:['Case Study','Architecture'], labels:['Problématique','Approche','Résultat','Décisions d’ingénierie clés'], archSelect:'Sélectionnez un composant'
+    }
+  };
+
+  const timelineData = {
+    en: {
+      '2018': {company:'OMNIACOM',role:'Java / J2EE Developer',copy:'Built a web application for fiber-optic deployment management, establishing my software engineering and backend foundations.',tags:['Java EE','Spring MVC','MySQL','REST APIs']},
+      '2020': {company:'SFM Technologies',role:'Python Developer | Machine Learning',copy:'Developed a telecom network-intelligence web application combining backend APIs, data processing, machine learning and interactive monitoring.',tags:['Python','Django','DRF','Machine Learning']},
+      '2022': {company:'Spacefoot',role:'Data Engineer | Web Scraping',copy:'Moved deeper into data engineering through automated product ingestion, transformation, quality controls and operational catalog workflows.',tags:['Python','Pandas','Selenium','Data Quality']},
+      '2025': {company:'Keolis Santé · JEMS',role:'Data Engineer Cloud | Azure',copy:'Industrialized an Azure data platform and automated reporting workflows for operational and analytical use cases.',tags:['Azure Synapse','ADLS','Spark','Power BI']},
+      '2026': {company:'Géo Vendée · JEMS',role:'Data Engineer Cloud | AWS',copy:'Built and optimized an AWS geospatial Data Lakehouse with multi-source ingestion, orchestration, Iceberg layers and automated quality controls.',tags:['AWS Glue','Iceberg','PySpark','Step Functions']}
+    },
+    fr: {
+      '2018': {company:'OMNIACOM',role:'Java / J2EE Developer',copy:'Développement d’une application web de gestion du déploiement de la fibre optique, consolidant mes bases en software engineering et backend.',tags:['Java EE','Spring MVC','MySQL','REST APIs']},
+      '2020': {company:'SFM Technologies',role:'Python Developer | Machine Learning',copy:'Développement d’une application web de Network Intelligence combinant APIs backend, traitement de données, machine learning et supervision interactive.',tags:['Python','Django','DRF','Machine Learning']},
+      '2022': {company:'Spacefoot',role:'Data Engineer | Web Scraping',copy:'Évolution vers le Data Engineering avec automatisation de l’ingestion produit, transformations, contrôles qualité et workflows catalogue.',tags:['Python','Pandas','Selenium','Data Quality']},
+      '2025': {company:'Keolis Santé · JEMS',role:'Data Engineer Cloud | Azure',copy:'Industrialisation d’une plateforme data Azure et automatisation des workflows de reporting pour les usages opérationnels et analytiques.',tags:['Azure Synapse','ADLS','Spark','Power BI']},
+      '2026': {company:'Géo Vendée · JEMS',role:'Data Engineer Cloud | AWS',copy:'Construction et optimisation d’un Data Lakehouse géospatial AWS avec ingestion multi-sources, orchestration, couches Iceberg et contrôles qualité automatisés.',tags:['AWS Glue','Iceberg','PySpark','Step Functions']}
+    }
+  };
+
+  const projectDetails = {
+    'geo-vendee': {
+      title:'Géo Vendée', role:'Data Engineer Cloud | AWS',
+      en:{challenge:'Centralize heterogeneous territorial and geospatial sources while keeping exposed datasets reliable and usable by local-authority applications.',approach:'A layered AWS Data Lakehouse with reusable ingestion, Spark transformations, workflow orchestration and explicit reject management.',outcome:'3× faster ingestion and 94% of ingestion errors automatically detected and routed through SQS.',decisions:['Separate ingestion, transformation and serving responsibilities.','Use Iceberg-backed curated layers for scalable table management.','Route rejected records to SQS instead of silently dropping invalid data.','Orchestrate dependencies with Step Functions and EventBridge.'],archIntro:'Click a component to see its role in the Géo Vendée data flow.',arch:[['Sources','PostgreSQL · APIs · CSV · XLSX · GeoJSON','Multi-source territorial and geospatial inputs.'],['Ingestion','AWS Glue','Generic ingestion jobs load and normalize source data.'],['Lakehouse','S3 · Iceberg','Layered storage for raw and curated datasets.'],['Quality & Orchestration','SQS · Step Functions','Quality rejects are routed while workflows coordinate processing.'],['Serving','Athena · Aurora · GeoServer','Curated data is exposed to analytics and cartographic consumers.']]},
+      fr:{challenge:'Centraliser des sources territoriales et géospatiales hétérogènes tout en garantissant des données exposées fiables et exploitables.',approach:'Un Data Lakehouse AWS en couches avec ingestion réutilisable, transformations Spark, orchestration et gestion explicite des rejets.',outcome:'Ingestion 3× plus rapide et 94 % des erreurs d’ingestion détectées et routées automatiquement via SQS.',decisions:['Séparer les responsabilités d’ingestion, transformation et exposition.','Utiliser des tables Iceberg pour gérer les couches de données de façon scalable.','Router les enregistrements rejetés vers SQS plutôt que de perdre silencieusement les erreurs.','Orchestrer les dépendances avec Step Functions et EventBridge.'],archIntro:'Cliquez sur un composant pour comprendre son rôle dans le flux Géo Vendée.',arch:[['Sources','PostgreSQL · APIs · CSV · XLSX · GeoJSON','Sources territoriales et géospatiales multi-formats.'],['Ingestion','AWS Glue','Jobs génériques d’ingestion et normalisation des données.'],['Lakehouse','S3 · Iceberg','Stockage en couches pour les données raw et curées.'],['Qualité & orchestration','SQS · Step Functions','Routage des rejets qualité et coordination des traitements.'],['Exposition','Athena · Aurora · GeoServer','Mise à disposition des données pour l’analytics et les usages cartographiques.']]}
+    },
+    'keolis': {
+      title:'Keolis Santé', role:'Data Engineer Cloud | Azure',
+      en:{challenge:'Consolidate operational ERP data across the JUSSIEU secours network and remove bottlenecks in reporting refreshes.',approach:'Azure Synapse ingestion and Spark-based transformation workflows feeding curated layers for Power BI.',outcome:'Reporting moved from weekly manual production to automated daily refreshes, with ~50% lower analytical processing time.',decisions:['Centralize ERP ingestion in Azure Synapse.','Use PySpark and Spark SQL for reusable transformations.','Automate the end-to-end path from source ingestion to curated data.','Optimize analytical workloads around reporting consumption.'],archIntro:'The architecture shows the path from ERP systems to operational reporting.',arch:[['ERP Sources','Lomaco · Synovo','Operational source systems across network members.'],['Ingestion','Azure Synapse','Pipelines ingest source data into the cloud platform.'],['Storage','ADLS Gen2','Cloud storage for staged and processed datasets.'],['Processing','Spark · PySpark · SQL','Transformations and performance optimization.'],['Analytics','Power BI','Curated datasets feed daily operational reporting.']]},
+      fr:{challenge:'Consolider les données opérationnelles ERP du réseau JUSSIEU secours et supprimer les goulots d’étranglement du reporting.',approach:'Ingestion Azure Synapse et transformations Spark alimentant des couches curées destinées à Power BI.',outcome:'Passage d’une production manuelle hebdomadaire à une alimentation quotidienne automatisée, avec ~50 % de réduction du temps de traitement analytique.',decisions:['Centraliser l’ingestion ERP dans Azure Synapse.','Utiliser PySpark et Spark SQL pour des transformations réutilisables.','Automatiser le flux end-to-end de l’ingestion aux données curées.','Optimiser les traitements analytiques pour les usages de reporting.'],archIntro:'L’architecture illustre le parcours des systèmes ERP jusqu’au reporting opérationnel.',arch:[['Sources ERP','Lomaco · Synovo','Systèmes opérationnels des membres du réseau.'],['Ingestion','Azure Synapse','Pipelines d’ingestion vers la plateforme cloud.'],['Stockage','ADLS Gen2','Stockage cloud des données intermédiaires et traitées.'],['Traitement','Spark · PySpark · SQL','Transformations et optimisations de performance.'],['Analytics','Power BI','Les données curées alimentent le reporting quotidien.']]}
+    },
+    'spacefoot': {title:'Spacefoot',role:'Data Engineer | Web Scraping',en:{challenge:'Maintain a reliable e-commerce product catalog fed from multiple B2B and B2C websites.',approach:'Python extraction and transformation workflows with automated validation, anomaly detection and catalog-quality monitoring.',outcome:'45% fewer product listing errors and 80% of previously manual catalog-update work automated.',decisions:['Automate repetitive extraction using reusable Python scripts.','Normalize product attributes before integration.','Detect duplicates and inconsistencies before publication.','Monitor catalog reliability instead of relying only on manual review.'],archIntro:'A lightweight data workflow from web sources to the product catalog.',arch:[['Web Sources','B2B · B2C','Product information collected from supplier and retail websites.'],['Extraction','Requests · BeautifulSoup · Selenium','Automated scraping depending on page behavior.'],['Processing','Python · Pandas','Cleaning, mapping and enrichment of product data.'],['Quality','Validation rules','Duplicates, anomalies and inconsistencies are detected.'],['Catalog','Magento','Structured product data is integrated for operational use.']]},fr:{challenge:'Maintenir un catalogue e-commerce fiable alimenté depuis plusieurs sites B2B et B2C.',approach:'Workflows Python d’extraction et transformation avec validation automatisée, détection d’anomalies et suivi de la qualité catalogue.',outcome:'45 % d’erreurs de fiches produit en moins et 80 % du travail manuel de mise à jour automatisé.',decisions:['Automatiser les extractions répétitives avec des scripts Python réutilisables.','Normaliser les attributs produit avant intégration.','Détecter doublons et incohérences avant publication.','Suivre la fiabilité du catalogue au lieu de dépendre uniquement des contrôles manuels.'],archIntro:'Un workflow data léger des sources web jusqu’au catalogue produit.',arch:[['Sources Web','B2B · B2C','Informations produit collectées depuis les sites fournisseurs et retail.'],['Extraction','Requests · BeautifulSoup · Selenium','Scraping automatisé selon le comportement des pages.'],['Traitement','Python · Pandas','Nettoyage, mapping et enrichissement des données produit.'],['Qualité','Règles de validation','Détection des doublons, anomalies et incohérences.'],['Catalogue','Magento','Intégration de données produit structurées pour les usages opérationnels.']] }},
+    'sfm': {title:'SFM Technologies',role:'Python Developer | Machine Learning',en:{challenge:'Provide telecom teams with a web application capable of consolidating network-performance data and surfacing anomalies quickly.',approach:'A Django web application combining REST APIs, data-processing workflows, machine-learning models and interactive dashboards.',outcome:'Continuous automated anomaly detection and faster incident response through real-time alerts and KPI visibility.',decisions:['Expose application capabilities through Django REST Framework.','Prepare network measurements before model inference.','Integrate ML outputs into the application workflow.','Surface KPIs and alerts through interactive dashboards.'],archIntro:'The application combines backend, data and ML components in one monitoring workflow.',arch:[['Network Data','Performance measurements','Raw quality-of-service and network-performance data.'],['Processing','Python · Pandas','Collection, cleaning and transformation.'],['Intelligence','Scikit-learn','Anomaly detection and performance prediction models.'],['Backend','Django · DRF','Application logic and REST API exposure.'],['Web UI','Chart.js','Interactive KPIs, alerts and model-output dashboards.']]},fr:{challenge:'Fournir aux équipes télécom une application web capable de consolider les données de performance réseau et de remonter rapidement les anomalies.',approach:'Une application Django combinant APIs REST, traitements data, modèles de machine learning et dashboards interactifs.',outcome:'Détection automatisée continue des anomalies et réaction plus rapide grâce aux alertes temps réel et à la visibilité sur les KPIs.',decisions:['Exposer les fonctionnalités via Django REST Framework.','Préparer les mesures réseau avant l’inférence des modèles.','Intégrer les sorties ML dans le workflow applicatif.','Afficher KPIs et alertes via des dashboards interactifs.'],archIntro:'L’application combine backend, data et ML dans un même workflow de supervision.',arch:[['Données réseau','Mesures de performance','Données brutes de qualité de service et de performance réseau.'],['Traitement','Python · Pandas','Collecte, nettoyage et transformation.'],['Intelligence','Scikit-learn','Modèles de détection d’anomalies et prédiction.'],['Backend','Django · DRF','Logique applicative et exposition des APIs REST.'],['Interface Web','Chart.js','Dashboards interactifs de KPIs, alertes et résultats des modèles.']] }},
+    'omniacom': {title:'OMNIACOM',role:'Java / J2EE Developer',en:{challenge:'Centralize fiber-deployment project information and give teams a clearer view of field interventions and progress.',approach:'A Java EE web application with a structured relational model, backend components and RESTful APIs.',outcome:'Estimated reduction in manual project-data consolidation and faster project-status updates through centralized tracking.',decisions:['Translate business requirements into an application data model.','Centralize project and intervention information.','Expose backend capabilities through RESTful APIs.','Structure tracking features around operational workflows.'],archIntro:'A classic web-application architecture focused on deployment-project tracking.',arch:[['Users','Project teams','Operational and project stakeholders.'],['Web App','Bootstrap','Project and intervention tracking interface.'],['Backend','Java EE · Spring MVC','Business logic and application services.'],['API','REST APIs','Structured access to backend functionality.'],['Database','MySQL','Persistent project, intervention and tracking data.']]},fr:{challenge:'Centraliser les informations de déploiement fibre et donner aux équipes une meilleure visibilité sur les interventions terrain et l’avancement.',approach:'Une application web Java EE avec modèle relationnel structuré, composants backend et APIs RESTful.',outcome:'Réduction estimée de la consolidation manuelle des données projet et mises à jour de statut plus rapides grâce au suivi centralisé.',decisions:['Traduire les besoins métier en modèle de données applicatif.','Centraliser les informations de projet et d’intervention.','Exposer les fonctionnalités backend via des APIs RESTful.','Structurer le suivi autour des workflows opérationnels.'],archIntro:'Une architecture d’application web classique centrée sur le suivi des projets de déploiement.',arch:[['Utilisateurs','Équipes projet','Acteurs opérationnels et responsables de projet.'],['Application Web','Bootstrap','Interface de suivi des projets et interventions.'],['Backend','Java EE · Spring MVC','Logique métier et services applicatifs.'],['API','REST APIs','Accès structuré aux fonctionnalités backend.'],['Base de données','MySQL','Persistance des projets, interventions et données de suivi.']]}}
+  };
+
+  let currentPortfolioLanguage = localStorage.getItem('portfolio-language') || (navigator.language && navigator.language.toLowerCase().startsWith('fr') ? 'fr' : 'en');
+
+  function applyEnhancementLanguage(lang) {
+    currentPortfolioLanguage = lang;
+    const f = featureCopy[lang] || featureCopy.en;
+    setText('.feature-impact-kicker',f.impactKicker); setText('.feature-impact-title',f.impactTitle); setText('.feature-impact-intro',f.impactIntro);
+    setText('.impact-stat-title',f.impactTitles); setText('.impact-stat-copy',f.impactCopies);
+    setText('.feature-pipeline-kicker',f.pipelineKicker); setText('.feature-pipeline-title',f.pipelineTitle); setText('.feature-pipeline-intro',f.pipelineIntro);
+    setText('.feature-cap-kicker',f.capKicker); setText('.feature-cap-title',f.capTitle); setText('.feature-cap-intro',f.capIntro); setText('.capability-card h3',f.capTitles); setText('.capability-card p',f.capCopies);
+    setText('.feature-stack-label',f.stackLabel); setText('.feature-stack-help',f.stackHelp); setText('.stack-reset',f.all);
+    setText('.feature-career-kicker',f.careerKicker); setText('.feature-career-title',f.careerTitle); setText('.feature-career-intro',f.careerIntro);
+    setText('.feature-cert-verified',f.certVerified); setText('.feature-cert-copy',f.certCopy); setText('.feature-cert-link',f.certLink);
+    document.querySelectorAll('.case-study-open span').forEach(el=>el.textContent=f.caseButton); document.querySelectorAll('.architecture-open span').forEach(el=>el.textContent=f.architectureButton);
+    const dlg=document.getElementById('project-dialog'); if(dlg){dlg.querySelector('.dialog-close').setAttribute('aria-label',f.close); setText('.dialog-kicker',f.dialogKicker); setText('.dialog-tab',f.tabs); setText('.dialog-label',f.labels); setText('.architecture-detail-label',f.archSelect);}
+    const activeTimeline=document.querySelector('.timeline-point.active'); if(activeTimeline) renderTimeline(activeTimeline.dataset.timeline);
+    const activeFilter=document.querySelector('.stack-filter-list button.active,.stack-reset.active'); if(activeFilter) applyTechFilter(activeFilter.dataset.filter,false);
+    // nav includes added Explore item
+    const navText=lang==='fr'?['Expérience','Explorer','Projets','Certifications','Formation','Contact']:['Experience','Explore','Projects','Certifications','Education','Contact']; setText('.nav-links a',navText);
+  }
+
+  function applyTechFilter(filter, scrollToExperience=true){
+    const cards=[...document.querySelectorAll('.case-study[data-tech]')]; const tokens=filter==='all'?[]:filter.split(/\s+/); let matches=0;
+    cards.forEach(card=>{const tech=(card.dataset.tech||'').split(/\s+/); const match=filter==='all'||tokens.some(t=>tech.includes(t)); card.classList.toggle('is-filtered-out',!match); card.classList.toggle('is-filter-match',filter!=='all'&&match); if(match) matches++;});
+    document.querySelectorAll('.stack-filter-list button,.stack-reset').forEach(btn=>btn.classList.toggle('active',btn.dataset.filter===filter));
+    document.querySelectorAll('.capability-card').forEach(btn=>btn.classList.toggle('active',btn.dataset.filter===filter));
+    const status=document.querySelector('.filter-status'); if(status) status.textContent=filter==='all'?'':featureCopy[currentPortfolioLanguage].filterStatus(matches);
+    if(scrollToExperience) document.getElementById('experience')?.scrollIntoView({behavior:reduceMotion?'auto':'smooth',block:'start'});
+  }
+  document.querySelectorAll('.stack-filter-list button,.stack-reset,.capability-card').forEach(btn=>btn.addEventListener('click',()=>applyTechFilter(btn.dataset.filter,true)));
+
+  function renderTimeline(year){const data=(timelineData[currentPortfolioLanguage]||timelineData.en)[year]; if(!data)return; setText('.timeline-company',data.company); setText('.timeline-role',data.role); setText('.timeline-copy',data.copy); const tags=document.querySelector('.timeline-tags'); if(tags) tags.innerHTML=data.tags.map(x=>`<span>${x}</span>`).join(''); document.querySelectorAll('.timeline-point').forEach(btn=>{const active=btn.dataset.timeline===year;btn.classList.toggle('active',active);btn.setAttribute('aria-selected',String(active));});}
+  document.querySelectorAll('.timeline-point').forEach(btn=>btn.addEventListener('click',()=>renderTimeline(btn.dataset.timeline)));
+
+  const dialog=document.getElementById('project-dialog'); let currentProject=null;
+  function renderArchitecture(project){const lang=currentPortfolioLanguage;const detail=project[lang]||project.en;const flow=dialog.querySelector('.architecture-flow');dialog.querySelector('.architecture-intro').textContent=detail.archIntro;flow.innerHTML=detail.arch.map((n,i)=>`<button type="button" class="architecture-node${i===0?' active':''}" data-node="${i}"><small>${n[0]}</small><strong>${n[1]}</strong><span>${n[2]}</span></button>`).join(''); const setDetail=(i)=>{const n=detail.arch[i];setText('.architecture-detail-label',n[0]);dialog.querySelector('.architecture-detail strong').textContent=n[1];dialog.querySelector('.architecture-detail p').textContent=n[2];flow.querySelectorAll('.architecture-node').forEach((b,j)=>b.classList.toggle('active',i===j));}; setDetail(0); flow.querySelectorAll('.architecture-node').forEach(btn=>btn.addEventListener('click',()=>setDetail(Number(btn.dataset.node))));}
+  function openProject(projectId,tab='case'){const p=projectDetails[projectId];if(!p||!dialog)return;currentProject=projectId;const lang=currentPortfolioLanguage;const d=p[lang]||p.en;dialog.querySelector('#dialog-title').textContent=p.title;dialog.querySelector('.dialog-role').textContent=p.role;dialog.querySelector('.dialog-challenge').textContent=d.challenge;dialog.querySelector('.dialog-approach').textContent=d.approach;dialog.querySelector('.dialog-outcome').textContent=d.outcome;dialog.querySelector('.dialog-deliverables ul').innerHTML=d.decisions.map(x=>`<li>${x}</li>`).join('');renderArchitecture(p);switchDialogTab(tab);dialog.showModal();}
+  function switchDialogTab(tab){dialog.querySelectorAll('.dialog-tab').forEach(b=>{const a=b.dataset.dialogTab===tab;b.classList.toggle('active',a);b.setAttribute('aria-selected',String(a));});dialog.querySelectorAll('.dialog-panel').forEach(p=>p.classList.toggle('active',p.dataset.dialogPanel===tab));}
+  if(dialog){document.querySelectorAll('.case-study-open').forEach(btn=>btn.addEventListener('click',()=>openProject(btn.closest('.case-study').dataset.project,'case')));document.querySelectorAll('.architecture-open').forEach(btn=>btn.addEventListener('click',()=>openProject(btn.closest('.case-study').dataset.project,'architecture')));dialog.querySelector('.dialog-close').addEventListener('click',()=>dialog.close());dialog.querySelectorAll('.dialog-tab').forEach(btn=>btn.addEventListener('click',()=>switchDialogTab(btn.dataset.dialogTab)));dialog.addEventListener('click',e=>{const r=dialog.getBoundingClientRect();if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)dialog.close();});}
+
+  // Make the new quantified dashboard participate in count-up animation.
+  if (!reduceMotion && 'IntersectionObserver' in window) {
+    const extraMetricObserver = new IntersectionObserver((entries, observer) => { entries.forEach((entry) => { if (!entry.isIntersecting) return; animateMetric(entry.target); observer.unobserve(entry.target); }); }, { threshold: 0.65 });
+    document.querySelectorAll('.impact-stat strong').forEach(metric => extraMetricObserver.observe(metric));
+  }
+
+  applyEnhancementLanguage(currentPortfolioLanguage);
+
 })();
