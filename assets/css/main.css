@@ -718,9 +718,51 @@ main,
 .case-actions{display:flex;flex-wrap:wrap;gap:.65rem;margin:1.1rem 0}.case-action{display:inline-flex;align-items:center;justify-content:space-between;gap:.7rem;min-height:42px;padding:.58rem .8rem;border:1px solid var(--line);border-radius:12px;background:transparent;color:var(--text);font:inherit;font-size:.75rem;cursor:pointer;transition:.2s ease;text-decoration:none}.case-action:hover{border-color:color-mix(in srgb,var(--accent) 55%,var(--line));background:var(--accent-soft);transform:translateY(-2px)}.case-action b{color:var(--accent)}
 .career-timeline{padding:1.3rem;border:1px solid var(--line);border-radius:24px;background:var(--surface)}.timeline-rail{position:relative;display:grid;grid-template-columns:repeat(5,1fr);gap:0;margin-bottom:1.5rem}.timeline-rail:before{content:"";position:absolute;left:8%;right:8%;top:34px;height:1px;background:var(--line-strong)}.timeline-point{position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;gap:.55rem;border:0;background:transparent;color:var(--muted);font:inherit;cursor:pointer}.timeline-point span{font-size:.8rem}.timeline-point i{width:13px;height:13px;border:3px solid var(--surface);border-radius:50%;background:var(--line-strong);box-shadow:0 0 0 1px var(--line)}.timeline-point.active{color:var(--text)}.timeline-point.active i{background:var(--accent);box-shadow:0 0 0 5px var(--accent-soft)}.timeline-detail{display:grid;grid-template-columns:minmax(180px,.7fr) 1.3fr;gap:1.5rem;padding:1.35rem;border-radius:18px;background:var(--surface-strong)}.timeline-company{font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;color:var(--accent)}.timeline-role{margin:.4rem 0 0}.timeline-copy{margin:0;color:var(--muted);line-height:1.7}.timeline-tags{grid-column:1/-1;display:flex;flex-wrap:wrap;gap:.5rem}.timeline-tags span{font-size:.7rem;padding:.38rem .62rem;border:1px solid var(--line);border-radius:999px;color:var(--muted)}
 .project-dialog{width:min(1320px,calc(100% - 2rem));max-height:88%;padding:0;border:1px solid var(--line);border-radius:26px;background:var(--surface);color:var(--text);box-shadow:0 35px 100px rgba(0,0,0,.4)}.project-dialog::backdrop{background:rgba(2,7,15,.72);backdrop-filter:blur(8px)}.dialog-shell{padding:1.35rem}.dialog-header{display:flex;justify-content:space-between;gap:1rem;align-items:flex-start}.dialog-kicker,.dialog-label{font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:var(--accent)}.dialog-header h2{margin:.3rem 0 .15rem}.dialog-role{margin:0;color:var(--muted);font-size:.82rem}.dialog-close{width:42px;height:42px;border:1px solid var(--line);border-radius:50%;background:transparent;color:var(--text);font-size:1.5rem;cursor:pointer}.dialog-tabs{display:flex;gap:.45rem;margin:1.2rem 0;border-bottom:1px solid var(--line)}.dialog-tab{padding:.7rem .8rem;border:0;border-bottom:2px solid transparent;background:transparent;color:var(--muted);font:inherit;font-size:.78rem;cursor:pointer}.dialog-tab.active{color:var(--text);border-color:var(--accent)}.dialog-panel{display:none}.dialog-panel.active{display:block}.dialog-case-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:.8rem}.dialog-case-grid article,.dialog-deliverables{padding:1rem;border:1px solid var(--line);border-radius:16px;background:var(--surface-strong)}.dialog-case-grid p{margin:.5rem 0 0;color:var(--muted);font-size:.82rem;line-height:1.65}.dialog-deliverables{margin-top:.8rem}.dialog-deliverables ul{display:grid;grid-template-columns:repeat(2,1fr);gap:.45rem 1rem;margin:.7rem 0 0;padding-left:1.1rem;color:var(--muted);font-size:.8rem;line-height:1.55}
-@media(max-width:980px){@media(max-width:680px){.impact-dashboard,@media(prefers-reduced-motion:reduce){.pipeline-track i,.cert-orbit i{animation:none!important}.impact-bar i{transform:scaleX(1)!important}}
 
 
+
+
+
+
+/* Clean responsive rules */
+@media (max-width: 980px) {
+  .pipeline-visual {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .pipeline-track {
+    display: none;
+  }
+
+  .dialog-case-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .dialog-deliverables ul {
+    grid-template-columns: 1fr;
+  }
+
+  .timeline-detail {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 680px) {
+  .pipeline-visual {
+    grid-template-columns: 1fr;
+  }
+
+  .timeline-rail {
+    grid-template-columns: repeat(5, minmax(54px, 1fr));
+    overflow-x: auto;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pipeline-track i {
+    animation: none !important;
+  }
+}
 
 
 /* ============================================================
