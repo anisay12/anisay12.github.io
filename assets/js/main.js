@@ -627,29 +627,13 @@
   // ============================================================
   const featureCopy = {
     en: {
-      impactKicker:'Impact dashboard', impactTitle:'Engineering measured by outcomes.', impactIntro:'A snapshot of measurable improvements delivered across cloud data, analytics and automation projects.',
-      impactTitles:['Faster ingestion','Errors routed','Faster analytics','Catalog work automated'],
-      impactCopies:['Spark workload optimizations on a geospatial data platform.','Automated ingestion-error detection and SQS routing.','Lower analytical processing time after Spark optimization.','Previously manual product-catalog update activities automated.'],
       pipelineKicker:'How I build', pipelineTitle:'From raw signals to trusted data products.', pipelineIntro:'A simplified view of the engineering flow I use to turn heterogeneous sources into reliable, business-ready data.',
-      capKicker:'Capabilities', capTitle:'Explore my stack by engineering capability.', capIntro:'Select a capability to highlight the experiences where I applied it.',
-      capTitles:['Cloud Platforms','Processing','Orchestration','Data Quality','Software Engineering','Data Storage'],
-      capCopies:['AWS · Azure · S3 · ADLS · Glue · Synapse','Spark · PySpark · Spark SQL · Python','Step Functions · EventBridge · Automated workflows','Validation · Reject routing · Reliability controls','APIs · Django · Java · Backend · Testing','Iceberg · S3 · ADLS · PostgreSQL · MySQL'],
-      stackLabel:'Interactive tech stack', stackHelp:'Filter work experience by technology', all:'All', filterStatus:(n)=>`${n} experience${n===1?'':'s'} highlighted`,
       careerKicker:'Career timeline', careerTitle:'An engineering journey toward cloud data platforms.', careerIntro:'Select a milestone to see how my scope evolved from software development to cloud data engineering.',
-      certVerified:'Certified', certCopy:'Validated expertise in modeling, testing, documentation, debugging, CI/CD and modern analytics engineering workflows.', certLink:'Verify credential',
       caseButton:'Explore case study', architectureButton:'View architecture', close:'Close case study', dialogKicker:'Case study', tabs:['Case Study','Architecture'], labels:['Challenge','Approach','Outcome','Key engineering decisions'], archSelect:'Select a component'
     },
     fr: {
-      impactKicker:'Dashboard d’impact', impactTitle:'Une ingénierie mesurée par les résultats.', impactIntro:'Une synthèse des améliorations mesurables obtenues sur mes projets cloud, data, analytics et automatisation.',
-      impactTitles:['Ingestion accélérée','Erreurs routées','Analytics accéléré','Catalogue automatisé'],
-      impactCopies:['Optimisation des traitements Spark sur une plateforme de données géospatiales.','Détection automatique des erreurs d’ingestion et routage vers SQS.','Réduction du temps de traitement analytique après optimisation Spark.','Automatisation des activités auparavant manuelles de mise à jour du catalogue.'],
       pipelineKicker:'Ma façon de construire', pipelineTitle:'Des données brutes aux data products fiables.', pipelineIntro:'Une vue simplifiée de mon approche pour transformer des sources hétérogènes en données fiables et exploitables par les métiers.',
-      capKicker:'Compétences', capTitle:'Explorez ma stack par capacité d’ingénierie.', capIntro:'Sélectionnez une compétence pour mettre en évidence les expériences dans lesquelles je l’ai appliquée.',
-      capTitles:['Plateformes Cloud','Traitement','Orchestration','Qualité des données','Software Engineering','Stockage Data'],
-      capCopies:['AWS · Azure · S3 · ADLS · Glue · Synapse','Spark · PySpark · Spark SQL · Python','Step Functions · EventBridge · Workflows automatisés','Validation · Routage des rejets · Contrôles de fiabilité','APIs · Django · Java · Backend · Tests','Iceberg · S3 · ADLS · PostgreSQL · MySQL'],
-      stackLabel:'Stack technique interactive', stackHelp:'Filtrer les expériences par technologie', all:'Tous', filterStatus:(n)=>`${n} expérience${n>1?'s':''} mise${n>1?'s':''} en évidence`,
       careerKicker:'Timeline professionnelle', careerTitle:'Un parcours d’ingénierie vers les plateformes data cloud.', careerIntro:'Sélectionnez une étape pour voir l’évolution de mon périmètre, du développement logiciel au Cloud Data Engineering.',
-      certVerified:'Certifié', certCopy:'Expertise validée en modélisation, tests, documentation, debugging, CI/CD et pratiques modernes d’Analytics Engineering.', certLink:'Vérifier la certification',
       caseButton:'Explorer le case study', architectureButton:'Voir l’architecture', close:'Fermer le case study', dialogKicker:'Case study', tabs:['Case Study','Architecture'], labels:['Problématique','Approche','Résultat','Décisions d’ingénierie clés'], archSelect:'Sélectionnez un composant'
     }
   };
@@ -692,30 +676,15 @@
   function applyEnhancementLanguage(lang) {
     currentPortfolioLanguage = lang;
     const f = featureCopy[lang] || featureCopy.en;
-    setText('.feature-impact-kicker',f.impactKicker); setText('.feature-impact-title',f.impactTitle); setText('.feature-impact-intro',f.impactIntro);
-    setText('.impact-stat-title',f.impactTitles); setText('.impact-stat-copy',f.impactCopies);
     setText('.feature-pipeline-kicker',f.pipelineKicker); setText('.feature-pipeline-title',f.pipelineTitle); setText('.feature-pipeline-intro',f.pipelineIntro);
-    setText('.feature-cap-kicker',f.capKicker); setText('.feature-cap-title',f.capTitle); setText('.feature-cap-intro',f.capIntro); setText('.capability-card h3',f.capTitles); setText('.capability-card p',f.capCopies);
-    setText('.feature-stack-label',f.stackLabel); setText('.feature-stack-help',f.stackHelp); setText('.stack-reset',f.all);
     setText('.feature-career-kicker',f.careerKicker); setText('.feature-career-title',f.careerTitle); setText('.feature-career-intro',f.careerIntro);
-    setText('.feature-cert-verified',f.certVerified); setText('.feature-cert-copy',f.certCopy); setText('.feature-cert-link',f.certLink);
     document.querySelectorAll('.case-study-open span').forEach(el=>el.textContent=f.caseButton); document.querySelectorAll('.architecture-open span').forEach(el=>el.textContent=f.architectureButton);
     const dlg=document.getElementById('project-dialog'); if(dlg){dlg.querySelector('.dialog-close').setAttribute('aria-label',f.close); setText('.dialog-kicker',f.dialogKicker); setText('.dialog-tab',f.tabs); setText('.dialog-label',f.labels); setText('.architecture-detail-label',f.archSelect);}
     const activeTimeline=document.querySelector('.timeline-point.active'); if(activeTimeline) renderTimeline(activeTimeline.dataset.timeline);
-    const activeFilter=document.querySelector('.stack-filter-list button.active,.stack-reset.active'); if(activeFilter) applyTechFilter(activeFilter.dataset.filter,false);
     // nav includes added Explore item
     const navText=lang==='fr'?['Expérience','Explorer','Projets','Certifications','Formation','Contact']:['Experience','Explore','Projects','Certifications','Education','Contact']; setText('.nav-links a',navText);
   }
 
-  function applyTechFilter(filter, scrollToExperience=true){
-    const cards=[...document.querySelectorAll('.case-study[data-tech]')]; const tokens=filter==='all'?[]:filter.split(/\s+/); let matches=0;
-    cards.forEach(card=>{const tech=(card.dataset.tech||'').split(/\s+/); const match=filter==='all'||tokens.some(t=>tech.includes(t)); card.classList.toggle('is-filtered-out',!match); card.classList.toggle('is-filter-match',filter!=='all'&&match); if(match) matches++;});
-    document.querySelectorAll('.stack-filter-list button,.stack-reset').forEach(btn=>btn.classList.toggle('active',btn.dataset.filter===filter));
-    document.querySelectorAll('.capability-card').forEach(btn=>btn.classList.toggle('active',btn.dataset.filter===filter));
-    const status=document.querySelector('.filter-status'); if(status) status.textContent=filter==='all'?'':featureCopy[currentPortfolioLanguage].filterStatus(matches);
-    if(scrollToExperience) document.getElementById('experience')?.scrollIntoView({behavior:reduceMotion?'auto':'smooth',block:'start'});
-  }
-  document.querySelectorAll('.stack-filter-list button,.stack-reset,.capability-card').forEach(btn=>btn.addEventListener('click',()=>applyTechFilter(btn.dataset.filter,true)));
 
   function renderTimeline(year){const data=(timelineData[currentPortfolioLanguage]||timelineData.en)[year]; if(!data)return; setText('.timeline-company',data.company); setText('.timeline-role',data.role); setText('.timeline-copy',data.copy); const tags=document.querySelector('.timeline-tags'); if(tags) tags.innerHTML=data.tags.map(x=>`<span>${x}</span>`).join(''); document.querySelectorAll('.timeline-point').forEach(btn=>{const active=btn.dataset.timeline===year;btn.classList.toggle('active',active);btn.setAttribute('aria-selected',String(active));});}
   document.querySelectorAll('.timeline-point').forEach(btn=>btn.addEventListener('click',()=>renderTimeline(btn.dataset.timeline)));
@@ -729,7 +698,6 @@
   // Make the new quantified dashboard participate in count-up animation.
   if (!reduceMotion && 'IntersectionObserver' in window) {
     const extraMetricObserver = new IntersectionObserver((entries, observer) => { entries.forEach((entry) => { if (!entry.isIntersecting) return; animateMetric(entry.target); observer.unobserve(entry.target); }); }, { threshold: 0.65 });
-    document.querySelectorAll('.impact-stat strong').forEach(metric => extraMetricObserver.observe(metric));
   }
 
   applyEnhancementLanguage(currentPortfolioLanguage);
