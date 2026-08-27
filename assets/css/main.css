@@ -1043,3 +1043,127 @@ main,
     transform:rotate(90deg);
   }
 }
+
+
+/* ============================================================
+   Personal projects — credential-style list
+   ============================================================ */
+.project-list {
+  border-top: 1px solid var(--line);
+}
+
+.project-list-item {
+  display: grid;
+  grid-template-columns: 120px 1fr auto;
+  gap: 24px;
+  align-items: center;
+  min-height: 130px;
+  padding: 24px 4px;
+  border-bottom: 1px solid var(--line);
+  transition: padding .2s ease, background .2s ease, border-color .2s ease;
+}
+
+.project-list-item:hover {
+  padding-inline: 14px;
+  background: var(--accent-soft);
+}
+
+.project-status {
+  color: var(--accent);
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+}
+
+.project-list-item h3 {
+  margin: 0 0 5px;
+  font: 600 19px/1.25 "Space Grotesk", sans-serif;
+}
+
+.project-list-item p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.project-list-icon {
+  color: var(--muted);
+  font-size: 18px;
+  transition: transform .2s ease, color .2s ease;
+}
+
+.project-list-item:hover .project-list-icon {
+  color: var(--accent);
+  transform: translate(4px,-4px);
+}
+
+/* ============================================================
+   dbt certification — emphasized without changing list format
+   ============================================================ */
+.credential-item.credential-featured {
+  position: relative;
+  padding-inline: 16px;
+  border-left: 2px solid var(--accent);
+  background:
+    linear-gradient(
+      90deg,
+      var(--accent-soft),
+      transparent 72%
+    );
+}
+
+.credential-item.credential-featured::before {
+  content: "CERTIFIED";
+  position: absolute;
+  top: 12px;
+  right: 42px;
+  padding: 4px 8px;
+  border: 1px solid color-mix(in srgb, var(--accent) 42%, var(--line));
+  border-radius: 999px;
+  background: var(--surface);
+  color: var(--accent);
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: .1em;
+  line-height: 1;
+}
+
+.credential-item.credential-featured .credential-status {
+  font-weight: 800;
+}
+
+.credential-item.credential-featured h3 {
+  color: var(--text);
+  font-weight: 700;
+}
+
+.credential-item.credential-featured .credential-icon {
+  color: var(--accent);
+}
+
+.credential-item.credential-featured:hover {
+  padding-inline: 20px;
+  background:
+    linear-gradient(
+      90deg,
+      var(--accent-soft),
+      transparent 82%
+    );
+}
+
+@media(max-width:680px) {
+  .project-list-item {
+    grid-template-columns: 1fr auto;
+    gap: 12px;
+  }
+
+  .project-status {
+    grid-column: 1 / -1;
+  }
+
+  .credential-item.credential-featured::before {
+    top: 14px;
+    right: 10px;
+  }
+}

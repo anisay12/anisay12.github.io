@@ -365,7 +365,7 @@
     setText('#projects .section-kicker', t.projectsKicker);
     setText('#projects .section-heading h2', t.projectsTitle);
     setText('#projects .section-heading > p', t.projectsIntro);
-    setText('.project-tile p', t.projectDescriptions);
+    setText('.project-list-item p', t.projectDescriptions);
 
     setText('#certifications .section-kicker', t.learningKicker);
     setText('#certifications .split-heading h2', t.certificationsTitle);
@@ -504,7 +504,7 @@
   }
 
   // 3) Stagger reveal timings so sections do not enter like one flat block.
-  document.querySelectorAll('.intro-strip, .impact-row, .project-grid, .credential-list, .education-list').forEach((group) => {
+  document.querySelectorAll('.intro-strip, .impact-row, .project-list, .credential-list, .education-list').forEach((group) => {
     [...group.children].forEach((child, index) => {
       child.style.setProperty('--stagger-index', index);
       child.classList.add('stagger-item');
