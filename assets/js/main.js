@@ -90,11 +90,11 @@
       clientMission: ['Client mission · JEMS', 'Client mission · JEMS'],
       dates: ['Oct. 2025 — May 2026', 'Jan. 2025 — Aug. 2025', 'Mar. 2022 — Feb. 2024', 'Feb. 2020 — May 2021', 'Feb. 2018 — Jun. 2018'],
       summaries: [
-        'Territorial data platform centralizing and exposing reliable geospatial datasets for local authorities and cartographic use cases.',
-        'Operational data platform centralizing ERP data across the JUSSIEU secours network and automating curated datasets for Power BI reporting.',
-        'E-commerce data workflows focused on product catalog ingestion, enrichment, quality control and operational automation.',
-        'Development of a web application for telecom network quality-of-service monitoring, combining data processing, REST APIs, machine-learning models and interactive dashboards for performance analysis and anomaly detection.',
-        'Web application centralizing fiber-optic project data, field interventions and operational progress tracking.'
+        'Development of a territorial data Lakehouse platform centralizing and exposing reliable geospatial datasets for local authorities and cartographic use cases.',
+        'Development of an operational data platform centralizing ERP data across the JUSSIEU secours network and automating curated datasets for Power BI reporting.',
+        'Development of E-commerce data workflows focused on product catalog ingestion, enrichment, quality control and operational automation.',
+        'Development of web application for telecom network quality-of-service monitoring, combining data processing, REST APIs, machine-learning models and interactive dashboards for performance analysis and anomaly detection.',
+        'Development of Web application centralizing fiber-optic project data, field interventions and operational progress tracking.'
       ],
       impactTexts: [
         'Faster ingestion after Spark optimizations',
