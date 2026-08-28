@@ -117,7 +117,9 @@
           'Bronze, Silver and Gold layers processing for geospatial datasets.',
           'Workflow orchestration with Step Functions and EventBridge.',
           'Automated data-quality controls and rejected-record workflows.',
-          'Curated data exposure through Aurora and GeoServer.'
+          'Curated data exposure through Aurora and GeoServer.',
+          'CI/CD workflows with GitHub Actions and AWS CLI to automate the packaging and deployment of AWS Glue jobs and Lambda functions.'
+
         ],
         [
           'Azure Synapse ingestion from Lomaco and Synovo ERP systems.',
@@ -136,7 +138,8 @@
           'Web application backend and REST APIs using Django and Django Rest Framework.',
           'Data processing workflows for network performance data collection, cleaning and transformation.',
           'Integration of machine-learning models for network anomaly detection and performance prediction.',
-          'Interactive dashboards for KPI monitoring, real-time alerts and model outputs.'
+          'Interactive dashboards for KPI monitoring, real-time alerts and model outputs.',
+          'GitLab CI/CD pipelines to automate application integration, validation and deployment workflows.'
         ],
         [
           'Business requirements and technical specifications.',
@@ -213,11 +216,11 @@
       clientMission: ['Mission client · JEMS', 'Mission client · JEMS'],
       dates: ['Oct. 2025 — Mai 2026', 'Janv. 2025 — Août 2025', 'Mars 2022 — Fév. 2024', 'Fév. 2020 — Mai 2021', 'Fév. 2018 — Juin 2018'],
       summaries: [
-        'Plateforme data territoriale centralisant et exposant des jeux de données géospatiales fiables pour les collectivités et les usages cartographiques.',
-        'Plateforme data opérationnelle centralisant les données ERP du réseau JUSSIEU secours et automatisant les jeux de données préparés pour le reporting Power BI.',
-        'Workflows data e-commerce dédiés à l’ingestion, l’enrichissement, au contrôle qualité et à l’automatisation opérationnelle du catalogue produit.',
-        'Développement d’une application web de supervision de la qualité de service des réseaux télécoms, combinant traitement de données, APIs REST, modèles de machine learning et dashboards interactifs pour l’analyse des performances et la détection d’anomalies.',
-        'Application web centralisant les données des projets fibre optique, les interventions terrain et le suivi de l’avancement opérationnel.'
+        'Développement d’une plateforme data Lakehouse territoriale centralisant et exposant des jeux de données géospatiales fiables pour les collectivités et les usages cartographiques.',
+        'Développement d’une plateforme data opérationnelle centralisant les données ERP du réseau JUSSIEU secours et automatisant les jeux de données préparés pour le reporting Power BI.',
+        'Développement des Workflows data e-commerce dédiés à l’ingestion, l’enrichissement, au contrôle qualité et à l’automatisation opérationnelle du catalogue produit.',
+        'Conception et développement d’une application web de supervision de la qualité de service des réseaux télécoms, combinant traitement de données, APIs REST, modèles de machine learning et dashboards interactifs pour l’analyse des performances et la détection d’anomalies.',
+        'Conception et développement d’une Application web centralisant les données des projets fibre optique, les interventions terrain et le suivi de l’avancement opérationnel.'
       ],
       impactTexts: [
         'Ingestion plus rapide grâce aux optimisations Spark',
@@ -240,7 +243,8 @@
           'Traitement de données géospatiales à travers les couches Bronze, Silver et Gold.',
           'Orchestration des workflows avec Step Functions et EventBridge.',
           'Mise en place de contrôles qualité automatisés et de workflows de gestion des rejets.',
-          'Exposition des données préparées via Aurora et GeoServer.'
+          'Exposition des données préparées via Aurora et GeoServer.',
+          'Mise en place de workflows CI/CD avec GitHub Actions et AWS CLI pour automatiser le packaging et le déploiement des jobs AWS Glue et des fonctions Lambda.'
         ],
         [
           'Ingestion via Azure Synapse depuis les ERP Lomaco et Synovo.',
@@ -259,7 +263,8 @@
           'Développement du backend de l’application web et des APIs REST avec Django et Django Rest Framework.',
           'Création de workflows de traitement pour la collecte, le nettoyage et la transformation des données de performance réseau.',
           'Intégration de modèles de machine learning pour la détection d’anomalies réseau et la prédiction des performances.',
-          'Développement de dashboards interactifs pour le suivi des KPIs, des alertes en temps réel et des résultats des modèles.'
+          'Développement de dashboards interactifs pour le suivi des KPIs, des alertes en temps réel et des résultats des modèles.',
+          'Mise en place de pipelines CI/CD avec GitLab pour automatiser l’intégration, la validation et le déploiement de l’application.'
         ],
         [
           'Recueil des besoins métier et rédaction des spécifications techniques.',
