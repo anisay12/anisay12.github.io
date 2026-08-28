@@ -93,8 +93,8 @@
         'Development of a territorial data Lakehouse platform centralizing and exposing reliable geospatial datasets for local authorities and cartographic use cases.',
         'Development of an operational data platform centralizing ERP data across the JUSSIEU secours network and automating curated datasets for Power BI reporting.',
         'Development of E-commerce data workflows focused on product catalog ingestion, enrichment, quality control and operational automation.',
-        'Development of web application for telecom network quality-of-service monitoring, combining data processing, REST APIs, machine-learning models and interactive dashboards for performance analysis and anomaly detection.',
-        'Development of Web application centralizing fiber-optic project data, field interventions and operational progress tracking.'
+        'Design and development of web application for telecom network quality-of-service monitoring, combining data processing, REST APIs, machine-learning models and interactive dashboards for performance analysis and anomaly detection.',
+        'Design and development of Web application centralizing fiber-optic project data, field interventions and operational progress tracking.'
       ],
       impactTexts: [
         'Faster ingestion after Spark optimizations',
@@ -220,7 +220,7 @@
         'Développement d’une plateforme data opérationnelle centralisant les données ERP du réseau JUSSIEU secours et automatisant les jeux de données préparés pour le reporting Power BI.',
         'Développement des Workflows data e-commerce dédiés à l’ingestion, l’enrichissement, au contrôle qualité et à l’automatisation opérationnelle du catalogue produit.',
         'Conception et développement d’une application web de supervision de la qualité de service des réseaux télécoms, combinant traitement de données, APIs REST, modèles de machine learning et dashboards interactifs pour l’analyse des performances et la détection d’anomalies.',
-        'Conception et développement d’une Application web centralisant les données des projets fibre optique, les interventions terrain et le suivi de l’avancement opérationnel.'
+        'Conception et développement d’une application web centralisant les données des projets fibre optique, les interventions terrain et le suivi de l’avancement opérationnel.'
       ],
       impactTexts: [
         'Ingestion plus rapide grâce aux optimisations Spark',
