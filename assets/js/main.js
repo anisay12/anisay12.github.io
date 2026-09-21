@@ -88,7 +88,7 @@
       jemsDescription: 'Cloud data platforms, pipeline industrialization, workflow automation and data quality for client missions and internal projects.',
       presentDate: 'Nov. 2024 — Present',
       clientMission: ['Client mission · JEMS', 'Client mission · JEMS'],
-      dates: ['Oct. 2025 — May 2026', 'Jan. 2025 — Aug. 2025', 'Mar. 2022 — Feb. 2024', 'Feb. 2020 — May 2021', 'Feb. 2018 — Jun. 2018'],
+      dates: ['Oct. 2025 — Jul 2026', 'Dec. 2024 — Aug. 2025', 'Mar. 2022 — Feb. 2024', 'Feb. 2020 — May 2021', 'Feb. 2018 — Jun. 2018'],
       summaries: [
         'Development of a territorial data Lakehouse platform centralizing and exposing reliable geospatial datasets for local authorities and cartographic use cases.',
         'Development of an operational data platform centralizing ERP data across the JUSSIEU secours network and automating curated datasets for Power BI reporting.',
@@ -214,7 +214,7 @@
       jemsDescription: 'Plateformes data cloud, industrialisation de pipelines, automatisation des workflows et qualité des données pour des missions client et des projets internes.',
       presentDate: 'Nov. 2024 — Aujourd’hui',
       clientMission: ['Mission client · JEMS', 'Mission client · JEMS'],
-      dates: ['Oct. 2025 — Mai 2026', 'Janv. 2025 — Août 2025', 'Mars 2022 — Fév. 2024', 'Fév. 2020 — Mai 2021', 'Fév. 2018 — Juin 2018'],
+      dates: ['Oct. 2025 — Jul 2026', 'Dec. 2024 — Août 2025', 'Mars 2022 — Fév. 2024', 'Fév. 2020 — Mai 2021', 'Fév. 2018 — Juin 2018'],
       summaries: [
         'Développement d’une plateforme data Lakehouse territoriale centralisant et exposant des jeux de données géospatiales fiables pour les collectivités et les usages cartographiques.',
         'Développement d’une plateforme data opérationnelle centralisant les données ERP du réseau JUSSIEU secours et automatisant les jeux de données préparés pour le reporting Power BI.',
